@@ -22,5 +22,5 @@ public class Debri : MonoBehaviour, IGrabable
         get { return _score; }
         set { _score = value; }
     }
-
+    
 }
