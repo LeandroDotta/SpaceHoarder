@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65970164624061702}
   m_Layer: 0
   m_Name: model
-  m_TagString: Untagged
+  m_TagString: Debri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 4552046070885848}
   - component: {fileID: 54946387146438764}
   - component: {fileID: 114271025147774874}
-  - component: {fileID: 65791608584560462}
   m_Layer: 0
   m_Name: DebriSmall
   m_TagString: Untagged
@@ -131,18 +130,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65791608584560462
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1970255789361264}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65970164624061702
 BoxCollider:
   m_ObjectHideFlags: 1
