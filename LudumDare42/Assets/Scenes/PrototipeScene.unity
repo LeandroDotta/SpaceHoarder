@@ -152,6 +152,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114302500736496874, guid: fb99a0306e0c3b846978f89b59504074,
+        type: 2}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 2104921439}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb99a0306e0c3b846978f89b59504074, type: 2}
   m_IsPrefabAsset: 0
@@ -1104,3 +1109,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4492194129134422, guid: d53191f21120ff4408b9b8e636aea8e4,
     type: 2}
   m_PrefabInternal: {fileID: 1012516513}
+--- !u!1 &2104921438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104921440}
+  - component: {fileID: 2104921439}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2104921439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2104921438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22179fe674ee7644b86acbb9c149cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _txtScore: {fileID: 1393925674}
+--- !u!4 &2104921440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2104921438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 252.88028, y: 264.85828, z: -2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
