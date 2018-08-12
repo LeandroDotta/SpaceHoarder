@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29936957, g: 0.29936957, b: 0.29936957, a: 1}
+  m_IndirectSpecularColor: {r: 0.29936957, g: 0.26800767, b: 0.2463122, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -244,67 +244,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 65997704491611062, guid: 6f40cb2986cbc7d48b607ba91b2f440d,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65997704491611062, guid: 6f40cb2986cbc7d48b607ba91b2f440d,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65997704491611062, guid: 6f40cb2986cbc7d48b607ba91b2f440d,
-        type: 2}
-      propertyPath: m_Center.z
-      value: 1.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 136312490315512480, guid: 6f40cb2986cbc7d48b607ba91b2f440d,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54802936976156776, guid: 6f40cb2986cbc7d48b607ba91b2f440d,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 84
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 65997704491611062, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
-    - {fileID: 65080324270885038, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
-    - {fileID: 65740228364579862, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
-    - {fileID: 65208737773969042, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
-    - {fileID: 65900282434770602, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
-    - {fileID: 65619070564463432, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
-    - {fileID: 65208956640292040, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
-    - {fileID: 136731555253520886, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
-    - {fileID: 136109522755279494, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &35091921 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1666894773650454, guid: 6f40cb2986cbc7d48b607ba91b2f440d,
-    type: 2}
-  m_PrefabInternal: {fileID: 35091920}
---- !u!4 &35091922 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4216982662009304, guid: 6f40cb2986cbc7d48b607ba91b2f440d,
-    type: 2}
-  m_PrefabInternal: {fileID: 35091920}
---- !u!114 &35091923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35091921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65264001f4b3abc4791794b126227740, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 200
-  cooldown: 3
-  trigger: {fileID: 649133974}
 --- !u!1001 &36869941
 Prefab:
   m_ObjectHideFlags: 0
@@ -845,47 +787,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4505722538807586, guid: b13e370f8dfeace4fb6e5dfc240a8264,
     type: 2}
   m_PrefabInternal: {fileID: 1951295460}
---- !u!1 &649133970
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 649133971}
-  - component: {fileID: 649133974}
-  m_Layer: 0
-  m_Name: PushTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &649133971
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 649133970}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.21, z: 3.86}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 35091922}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &649133974
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 649133970}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &681271807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4552046070885848, guid: a8bcf4c2468fbd64a97599a9589ec0ae,
@@ -1357,20 +1258,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea336b91832e154393e6fdee0fedb6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  variousDebris:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  spawnPlace:
-  - {fileID: 918541111}
-  - {fileID: 1615341787}
-  referenceForSpawner: {fileID: 1411513945}
-  referenceModifier: {x: 0, y: 0, z: 0}
-  spawnWait: 0
-  spawnMostWait: 2
-  spawnLeastWait: 0.5
-  startWait: 1
-  stop: 0
+  VariousDebris: []
+  DebrisSpawnRate: []
+  SpawnPoint: {fileID: 0}
+  SpawnMostWait: 0
+  SpawnLeastWait: 0
+  StartWait: 0
+  Stop: 0
+  BurstForce: 200
 --- !u!4 &1236786658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4045110612751904, guid: 77eda2b446ca6d349a771d3b7c207445,
@@ -1529,11 +1424,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1411513945 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1626352541981104, guid: fb99a0306e0c3b846978f89b59504074,
-    type: 2}
-  m_PrefabInternal: {fileID: 15445145}
 --- !u!1001 &1439942234
 Prefab:
   m_ObjectHideFlags: 0

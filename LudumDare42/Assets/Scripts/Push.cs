@@ -1,24 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Push : MonoBehaviour 
 {
-	public float force;
-	public float cooldown;
-	[SerializeField] private Collider trigger;
+	public float Force = 200f;
+	public float Cooldown = 3f;
+	[SerializeField] private Collider _trigger;
 
 	public float CooldownCounter { get; private set; }
 
 	private void Start() 
 	{
-		trigger.enabled = false;
-		CooldownCounter = cooldown;
+		_trigger.enabled = false;
+		CooldownCounter = Cooldown;
+	    if (_trigger == null)
+	    {
+	        _trigger = GetComponentInChildren<Collider>();
+	    }
 	}
 
 	private void Update() 
 	{
-		if(Input.GetKeyDown(KeyCode.Space))
+        if(CrossPlatformInputManager.GetButton("Push"))
 		{
 			Apply();
 		}
@@ -36,16 +41,16 @@ public class Push : MonoBehaviour
 		if(CooldownCounter > 0)
 			return;
 
-		trigger.enabled = true;
+		_trigger.enabled = true;
 		StartCoroutine("DisableCoroutine");
-		CooldownCounter = cooldown;
+		CooldownCounter = Cooldown;
 	}
 
 	private IEnumerator DisableCoroutine()
 	{
 		yield return new WaitForSeconds(0.1f);
 
-		trigger.enabled = false;
+		_trigger.enabled = false;
 	}
 
 	private void OnTriggerStay(Collider other) 
@@ -54,7 +59,7 @@ public class Push : MonoBehaviour
 		{
 			Rigidbody rb = other.GetComponentInParent<Rigidbody>();
 			if(rb != null)
-				rb.AddForce(transform.forward * force, ForceMode.Impulse);
+				rb.AddForce(transform.forward * Force, ForceMode.Impulse);
 		}
 	}
 }
