@@ -37,8 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4180319253026488}
   - component: {fileID: 65997506636901604}
+  - component: {fileID: 65779706712446624}
+  - component: {fileID: 114302500736496874}
   m_Layer: 0
-  m_Name: Incinerator
+  m_Name: incinerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1626352541981104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 0, z: 12.337034}
+  m_LocalPosition: {x: -0.13, y: 0, z: 10.24}
   m_LocalScale: {x: 0.71705174, y: 0.94055676, z: 0.94450563}
   m_Children:
   - {fileID: 4775339440690148}
@@ -405,6 +407,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1182263892513420}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65779706712446624
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1626352541981104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.94, y: 8.88, z: 7.96}
+  m_Center: {x: 0, y: 3.62, z: -4.93}
 --- !u!65 &65997506636901604
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -417,3 +431,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.11, y: 8.88, z: 4.08}
   m_Center: {x: 0, y: 3.62, z: -0.57}
+--- !u!114 &114302500736496874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1626352541981104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfa485c1405a3d4ebdb0b5c9b8282d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
