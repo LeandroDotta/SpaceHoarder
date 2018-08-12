@@ -14,6 +14,9 @@ public class Compactor : MonoBehaviour
     public GameObject compactedSmall;
     public GameObject compactedMedium;
 
+    [Header("Sound Effects")]
+    public AudioClip sfxSpawn;
+
     public float CooldownCounter { get; private set; }
 
     void Update()
@@ -32,6 +35,7 @@ public class Compactor : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log("Collided");
         if (CooldownCounter > 0)
             return;
 
@@ -62,5 +66,7 @@ public class Compactor : MonoBehaviour
         Rigidbody rb = instance.GetComponent<Rigidbody>();
         if (rb != null)
             rb.AddForce(spawnPoint.forward * exitForce, ForceMode.Impulse);
+
+        SoundEffects.Instance.Play(sfxSpawn);
     }
 }

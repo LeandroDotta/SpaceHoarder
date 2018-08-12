@@ -8,6 +8,9 @@ public class Incinerator : MonoBehaviour {
 	public float CooldownCounter { get; private set; }	
 	public GUIBar bar;
 	public Canvas canvas;
+
+	[Header("Sound Effects")]
+	public AudioClip sfxDestroy;
 	
 	void Update ()
 	{
@@ -45,6 +48,8 @@ public class Incinerator : MonoBehaviour {
             GameManager.Instance.UpdateMessStatus(-grabable.GetMassValue());
 			Destroy(other.transform.parent.gameObject);
 			canvas.gameObject.SetActive (true);
+
+			SoundEffects.Instance.Play(sfxDestroy);
 		}
 	}
 }
