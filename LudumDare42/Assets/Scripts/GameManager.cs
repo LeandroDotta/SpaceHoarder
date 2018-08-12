@@ -3,21 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
-	[SerializeField] private Text _txtScore;
+public class GameManager : MonoBehaviour
+{
+	[SerializeField] private Text _scoreText;
 	private int _score = 0;
-	// Use this for initialization
-	void Start () {
-		_txtScore.text = "Score: " + _score;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-	public void AddScore(int value){
+    private static GameManager _instance;
+
+    public static GameManager Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
+	public void AddScore(int value)
+	{
 		_score += value;
-		_txtScore.text = "Score: " + _score;
+		_scoreText.text = _score.ToString();
 	}
 }

@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Incinerator : MonoBehaviour {
 
-	public float CooldownCounter { get; private set; }
-	GameManager _gameManager;
-
-	// Use this for initialization
-	void Start () {
-		_gameManager = FindObjectOfType<GameManager>();
-	}
+	public float CooldownCounter { get; private set; }	
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if(CooldownCounter > 0)
 		{
 			CooldownCounter -= Time.deltaTime;
@@ -27,10 +21,12 @@ public class Incinerator : MonoBehaviour {
 		if (CooldownCounter > 0)
 			return;
 
-		if(other.CompareTag("Debri")) {
-			CooldownCounter = other.GetComponentInParent<Debri>().IncineratorCooldown;
+		if(other.CompareTag("Debri"))
+		{
+		    Debri debri = other.GetComponentInParent<Debri>();
+            CooldownCounter = debri.IncineratorCooldown;		    
+            GameManager.Instance.AddScore(debri.Score);
 			Destroy(other.transform.parent.gameObject);
-			_gameManager.AddScore(1);
 		}
 	}
 }
