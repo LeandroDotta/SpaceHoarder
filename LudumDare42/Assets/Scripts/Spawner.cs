@@ -44,8 +44,7 @@ public class Spawner : MonoBehaviour
             float randomInterval = Random.Range(SpawnLeastWait, SpawnMostWait);
             go = (GameObject)Instantiate(VariousDebris[_randomDebrisIndex], SpawnPoint.transform.position, gameObject.transform.rotation);
             rb = go.GetComponent<Rigidbody>();
-            rb.AddForce(transform.TransformDirection(SpawnPoint.transform.forward) * BurstForce * -1 * rb.mass);
-            Debug.Log(transform.TransformDirection(SpawnPoint.transform.forward));
+            rb.AddForce(transform.TransformDirection(SpawnPoint.transform.forward) * BurstForce * -1 * rb.mass);            
 
             yield return new WaitForSeconds(randomInterval);   
         }

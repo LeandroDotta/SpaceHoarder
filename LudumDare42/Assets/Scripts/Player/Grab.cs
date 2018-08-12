@@ -5,7 +5,6 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Grab : MonoBehaviour
 {    
-
     [SerializeField] private Collider _collider;    
 
     private void Start()
