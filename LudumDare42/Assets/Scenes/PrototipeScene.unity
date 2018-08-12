@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29936957, g: 0.26800767, b: 0.2463122, a: 1}
+  m_IndirectSpecularColor: {r: 0.29936957, g: 0.29936957, b: 0.29936957, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -157,6 +157,16 @@ Prefab:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114302500736496874, guid: fb99a0306e0c3b846978f89b59504074,
+        type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1270432349}
+    - target: {fileID: 114302500736496874, guid: fb99a0306e0c3b846978f89b59504074,
+        type: 2}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 597964976}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb99a0306e0c3b846978f89b59504074, type: 2}
   m_IsPrefabAsset: 0
@@ -173,7 +183,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4216982662009304, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4216982662009304, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -198,6 +208,11 @@ Prefab:
     - target: {fileID: 4216982662009304, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 54802936976156776, guid: 6f40cb2986cbc7d48b607ba91b2f440d,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 84
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f40cb2986cbc7d48b607ba91b2f440d, type: 2}
@@ -568,6 +583,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bd0ba0f26c0337498d0f00902c9d698, type: 2}
   m_IsPrefabAsset: 0
+--- !u!223 &1270432349 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 223125514242943804, guid: fe9f4ebaa5535d34aa5d7626a2545640,
+    type: 2}
+  m_PrefabInternal: {fileID: 2003650397}
 --- !u!1001 &1345473360
 Prefab:
   m_ObjectHideFlags: 0

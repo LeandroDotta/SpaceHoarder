@@ -4,13 +4,16 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Grab : MonoBehaviour
-{    
+{
     [SerializeField] private Collider _collider;
-    private IGrabable[] _itensGrabbed;
-    private bool _isFire1Pressed = false;    
+    private List<IGrabable> _itemsGrabbed;
+    private bool _isFire1Pressed = false;
+    private bool _grabbing = false;
 
     private void Start()
     {
+        _itemsGrabbed = new List<IGrabable>();
+
         if (_collider == null)
         {
             _collider = GetComponent<Collider>();
@@ -20,9 +23,25 @@ public class Grab : MonoBehaviour
     void Update()
     {
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
-        {            
-            _isFire1Pressed = true;
-            StartCoroutine(GrabCoroutine());            
+        {
+            if (_grabbing)
+            {
+                foreach(IGrabable grabable in _itemsGrabbed)
+                {
+                    Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
+                    rb.useGravity = true;
+                    rb.isKinematic = false;
+                    rb.transform.SetParent(null);
+                }
+
+                _itemsGrabbed.Clear();
+                _grabbing = false;
+            }
+            else
+            {
+                _isFire1Pressed = true;
+                StartCoroutine(GrabCoroutine());
+            }
         }
     }
 
@@ -34,9 +53,8 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
         if (!_isFire1Pressed) { return; }
-        
+
         IGrabable grabable = other.GetComponentInParent<IGrabable>();
 
         if (grabable != null)
@@ -44,7 +62,14 @@ public class Grab : MonoBehaviour
             grabable.GetTransform().SetParent(this.transform);
             Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
             rb.useGravity = false;
-            rb.isKinematic = false;
+            rb.isKinematic = true;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            // rb.transform.localPosition = Vector3.zero;
+
+            _grabbing = true;
+
+            _itemsGrabbed.Add(grabable);
         }
     }
 
@@ -52,8 +77,8 @@ public class Grab : MonoBehaviour
     {
         IGrabable grabable = other.GetComponentInParent<IGrabable>();
         if (grabable != null)
-        {            
-            grabable.SetHighlighted(true);            
+        {
+            grabable.SetHighlighted(true);
         }
         else
         {
@@ -67,7 +92,7 @@ public class Grab : MonoBehaviour
         IGrabable grabable = other.GetComponentInParent<IGrabable>();
         if (grabable != null)
         {
-            grabable.SetHighlighted(false);            
+            grabable.SetHighlighted(false);
         }
     }
 }

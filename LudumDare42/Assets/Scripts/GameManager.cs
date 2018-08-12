@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 		_scoreText.text = _score.ToString();
 
 	    debriCount++;
-        GUIbar.UpdateMessBar((float)debriCount);
+        GUIbar.UpdateMessBarr((float)debriCount);
 	}
 
 
