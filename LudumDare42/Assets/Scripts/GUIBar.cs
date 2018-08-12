@@ -1,34 +1,63 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class GUIBar : MonoBehaviour
+
+public enum BarType
 {
-	Image _bar;
+	MessBar,
+	Incinerator,
+	Compactor
+};
+
+
+public class GUIBar : MonoBehaviour {
+
+	Image bar;
+	BarType bartype;
 
 	void Start()
 	{
-		_bar = this.gameObject.GetComponent<Image>();
-	}	
-    
-	public void UpdateMessBar(float messLevel)
+		bar = this.gameObject.GetComponent<Image>();
+
+		if (bartype == BarType.Incinerator)
+		{
+			
+		}
+	}
+		
+
+	public void UpdateMessBarr(float messLevel)
 	{
-		_bar.fillAmount = messLevel / 100f;	    
-		UpdateBarColor ();
+		
+		//Assim que haver variáveis de bagunça, descomentar esse bloco
+		/*
+		bar.fillAmount = ((messLevel * 1.0f) / (100 * 1.0f)); //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
+		ChangeBarColor ();
+		*/
 	}
 
-	private void UpdateBarColor()
+
+	public void UpdateCooldownBar(float cooldown)
 	{
-		if (_bar.fillAmount < 0.30f)
+		bar.fillAmount = ((cooldown * 1.0f) / (100 * 1.0f)); //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
+	}
+
+	public void ChangeBarColor()
+	{
+		if (bar.fillAmount < 0.30f)
 		{
-			_bar.color = new Color32 (255, 50, 0, 255);
+			bar.color = new Color32 (255, 50, 0, 255);
 		}
-		else if (_bar.fillAmount < 0.55f) 
+		else if (bar.fillAmount < 0.55f) 
 		{
-			_bar.color = new Color32 (245, 207, 0, 255);
+			bar.color = new Color32 (245, 207, 0, 255);
 		}
-		else if(_bar.fillAmount > 0.56f) 
+		else if(bar.fillAmount > 0.56f) 
 		{
-			_bar.color = new Color32 (0, 245, 63, 255);
-		}		
+			bar.color = new Color32 (0, 245, 63, 255);
+		}
+		Debug.Log ("cor atualizada");
 	}
 }
