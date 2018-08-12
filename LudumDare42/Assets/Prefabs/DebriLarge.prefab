@@ -158,4 +158,6 @@ MonoBehaviour:
   IncineratorCooldown: 1
   CompactorCooldown: 1
   Compacted: 0
+  defaultMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: 215977489d11178d11005b9844295342, type: 2}
   _score: 50

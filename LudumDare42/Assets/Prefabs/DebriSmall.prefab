@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970255789361264}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.94, y: 1.35, z: 0}
+  m_LocalPosition: {x: -3.59, y: 10.83, z: -0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4360235570672932}
@@ -158,4 +158,6 @@ MonoBehaviour:
   IncineratorCooldown: 1
   CompactorCooldown: 1
   Compacted: 0
+  defaultMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: a3384ef3e2313034f9016ad8a1f3999f, type: 2}
   _score: 10

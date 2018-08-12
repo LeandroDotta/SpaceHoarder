@@ -103,13 +103,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4167207836313346}
   - component: {fileID: 135453383618609986}
+  - component: {fileID: 54558838555354108}
+  - component: {fileID: 114178389528931564}
   m_Layer: 0
   m_Name: GrabTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1552554379179302
 GameObject:
   m_ObjectHideFlags: 1
@@ -172,7 +174,6 @@ GameObject:
   - component: {fileID: 114665966306061100}
   - component: {fileID: 114186359780563892}
   - component: {fileID: 65854162968645026}
-  - component: {fileID: 114483359298186476}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -717,6 +718,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1552554379179302}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54558838555354108
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526346917940412}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!54 &54802936976156776
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -744,6 +760,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.6, y: 4.4, z: 2}
   m_Center: {x: 0, y: 2.3, z: 0.08}
+--- !u!114 &114178389528931564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526346917940412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44d845c70e4ba4baa5f1465becd724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 135453383618609986}
 --- !u!114 &114186359780563892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -758,18 +786,6 @@ MonoBehaviour:
   Force: 200
   Cooldown: 3
   _trigger: {fileID: 135377890774801386}
---- !u!114 &114483359298186476
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1666894773650454}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e44d845c70e4ba4baa5f1465becd724, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collider: {fileID: 135453383618609986}
 --- !u!114 &114665966306061100
 MonoBehaviour:
   m_ObjectHideFlags: 1

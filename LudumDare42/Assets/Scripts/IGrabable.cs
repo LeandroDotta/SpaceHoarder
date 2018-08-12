@@ -1,3 +1,6 @@
 ﻿using System;
 
-interface IGrabable { }
+interface IGrabable
+{
+    void SetHighlighted(bool highlighted);
+}

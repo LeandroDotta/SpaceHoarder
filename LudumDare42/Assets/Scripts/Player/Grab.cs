@@ -9,11 +9,10 @@ public class Grab : MonoBehaviour
 
     private void Start()
     {
-//        _collider.enabled = false;        
-        //if (_collider == null)
-        //{
-        //    _collider = GetComponentInChildren<Collider>();
-        //}
+        if (_collider == null)
+        {
+            _collider = GetComponent<Collider>();
+        }
     }
 
     //private void Update()
@@ -48,21 +47,51 @@ public class Grab : MonoBehaviour
     //    _collider.enabled = false;
     //}
 
-    private void OnTriggerStay(Collider other)
-    {
-        IGrabable grabable = other.GetComponent<IGrabable>();
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    IGrabable grabable = other.GetComponent<IGrabable>();
 
+    //    if (grabable != null)
+    //    {
+    //        Debug.Log("interface " + other.name);
+    //    }
+
+    //    if (other.CompareTag("Debri"))
+    //    {
+    //        Debri debri = other.GetComponent<Debri>();
+            
+    //        //Rigidbody rb = other.GetComponentInParent<Rigidbody>();
+    //        //if (rb != null)
+    //        //    rb.AddForce(transform.forward * Force, ForceMode.Impulse);
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        IGrabable grabable = other.GetComponentInParent<IGrabable>();
         if (grabable != null)
+        {            
+            grabable.SetHighlighted(true);
+            //Debug.Log("interface " + other.name);
+        }
+        else
         {
-            Debug.Log("interface " + other.name);
+            Debug.Log("not an IGrabable");
         }
 
+        //if (other.CompareTag("Debri"))
+        //{
+        //    Debri debri = other.GetComponent<Debri>();
+        //    debri.SetHighlighted(true);
+        //}
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        IGrabable grabable = other.GetComponentInParent<IGrabable>();
         if (other.CompareTag("Debri"))
         {
-            Debug.Log(other.name);
-            //Rigidbody rb = other.GetComponentInParent<Rigidbody>();
-            //if (rb != null)
-            //    rb.AddForce(transform.forward * Force, ForceMode.Impulse);
+            grabable.SetHighlighted(false);            
         }
     }
 }
