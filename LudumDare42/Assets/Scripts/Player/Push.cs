@@ -15,10 +15,10 @@ public class Push : MonoBehaviour
 	{
 		_trigger.enabled = false;
 		CooldownCounter = Cooldown;
-	    if (_trigger == null)
-	    {
-	        _trigger = GetComponentInChildren<Collider>();
-	    }
+	    //if (_trigger == null)
+	    //{
+	    //    _trigger = GetComponentInChildren<Collider>();
+	    //}
 	}
 
 	private void Update() 
@@ -60,6 +60,6 @@ public class Push : MonoBehaviour
 			Rigidbody rb = other.GetComponentInParent<Rigidbody>();
 			if(rb != null)
 				rb.AddForce(transform.forward * Force, ForceMode.Impulse);
-		}
+		}	    
 	}
 }
