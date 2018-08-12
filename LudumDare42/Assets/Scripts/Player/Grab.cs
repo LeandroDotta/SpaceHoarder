@@ -4,94 +4,95 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Grab : MonoBehaviour
-{    
-    [SerializeField] private Collider _collider;    
+{
+    [SerializeField] private Collider _collider;
+    private List<IGrabable> _itemsGrabbed;
+    private bool _isFire1Pressed = false;
+    private bool _grabbing = false;
 
     private void Start()
     {
+        _itemsGrabbed = new List<IGrabable>();
+
         if (_collider == null)
         {
             _collider = GetComponent<Collider>();
         }
     }
 
-    //private void Update()
-    //{
-    //    if (CrossPlatformInputManager.GetButton("Fire1"))
-    //    {
-    //        Apply();
-    //    }
+    void Update()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        {
+            if (_grabbing)
+            {
+                foreach(IGrabable grabable in _itemsGrabbed)
+                {
+                    Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
+                    rb.useGravity = true;
+                    rb.isKinematic = false;
+                    rb.transform.SetParent(null);
+                }
 
-    //    if (CooldownCounter > 0)
-    //    {
-    //        CooldownCounter -= Time.deltaTime;
+                _itemsGrabbed.Clear();
+                _grabbing = false;
+            }
+            else
+            {
+                _isFire1Pressed = true;
+                StartCoroutine(GrabCoroutine());
+            }
+        }
+    }
 
-    //        if (CooldownCounter < 0)
-    //            CooldownCounter = 0;
-    //    }
-    //}
-    //public void Apply()
-    //{
-    //    if (CooldownCounter > 0)
-    //        return;
+    private IEnumerator GrabCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _isFire1Pressed = false;
+    }
 
-    //    _collider.enabled = true;
-    //    StartCoroutine("DisableCoroutine");
-    //    CooldownCounter = Cooldown;
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (!_isFire1Pressed) { return; }
 
-    //private IEnumerator DisableCoroutine()
-    //{
-    //    yield return new WaitForSeconds(0.1f);
+        IGrabable grabable = other.GetComponentInParent<IGrabable>();
 
-    //    _collider.enabled = false;
-    //}
+        if (grabable != null)
+        {
+            grabable.GetTransform().SetParent(this.transform);
+            Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.isKinematic = true;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            // rb.transform.localPosition = Vector3.zero;
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    IGrabable grabable = other.GetComponent<IGrabable>();
+            _grabbing = true;
 
-    //    if (grabable != null)
-    //    {
-    //        Debug.Log("interface " + other.name);
-    //    }
-
-    //    if (other.CompareTag("Debri"))
-    //    {
-    //        Debri debri = other.GetComponent<Debri>();
-            
-    //        //Rigidbody rb = other.GetComponentInParent<Rigidbody>();
-    //        //if (rb != null)
-    //        //    rb.AddForce(transform.forward * Force, ForceMode.Impulse);
-    //    }
-    //}
+            _itemsGrabbed.Add(grabable);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         IGrabable grabable = other.GetComponentInParent<IGrabable>();
         if (grabable != null)
-        {            
+        {
             grabable.SetHighlighted(true);
-            //Debug.Log("interface " + other.name);
         }
         else
         {
             Debug.Log("not an IGrabable");
         }
 
-        //if (other.CompareTag("Debri"))
-        //{
-        //    Debri debri = other.GetComponent<Debri>();
-        //    debri.SetHighlighted(true);
-        //}
     }
 
     private void OnTriggerExit(Collider other)
     {
         IGrabable grabable = other.GetComponentInParent<IGrabable>();
-        if (other.CompareTag("Debri"))
+        if (grabable != null)
         {
-            grabable.SetHighlighted(false);            
+            grabable.SetHighlighted(false);
         }
     }
 }

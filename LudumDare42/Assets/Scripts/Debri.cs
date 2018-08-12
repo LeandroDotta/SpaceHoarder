@@ -56,5 +56,8 @@ public class Debri : MonoBehaviour, IGrabable
         }
     }
 
-    
+    public Transform GetTransform()
+    {
+        return this.transform;
+    }
 }

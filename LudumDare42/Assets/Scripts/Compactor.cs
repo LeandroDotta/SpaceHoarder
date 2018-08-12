@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Compactor : MonoBehaviour
 {
     public Transform spawnPoint;
     public float exitForce;
+	public GUIBar bar;
+	public Canvas canvas;
 
     [Header("Prefabs")]
     public GameObject compactedSmall;
