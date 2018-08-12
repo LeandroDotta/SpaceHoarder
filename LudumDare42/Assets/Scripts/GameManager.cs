@@ -6,10 +6,17 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] private Text _scoreText;
-    public GUIBar GUIbar;  // Mess bar at TopRightPanel
+    public GUIBar MessBar;  // Mess bar at TopRightPanel
 	private int _score = 0;
     private int debriCount = 0;
     private int messValue = 0;
+
+    private int _maxMessValue = 100;
+
+    public int MaxMessValue {
+        get { return _maxMessValue; }
+        set { _maxMessValue = value; }
+    }
 
     private static GameManager _instance;
 
@@ -28,21 +35,41 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        Init();
+    }
+
+
+    public void Init()
+    {
+        MessBar.MaxRawValue = _maxMessValue;
     }
 
 	public void AddScore(int value)
 	{
 		_score += value;
 		_scoreText.text = _score.ToString();
-
-	    //debriCount++;
 	}
 
-    public void SetMessStatus(int value)
+    public void UpdateMessStatus(int value)
     {
-        messValue = messValue + value;
-        GUIbar.UpdateMessBar((float)messValue);
+
+        Debug.Log("INCREMENTO: " + messValue);
+
+        messValue += value;
+        MessBar.UpdateMess(messValue);
+
+        //if (IsGameOver())
+        //{
+            
+        //}
     }
+
+    bool IsGameOver()
+    {
+        return messValue > _maxMessValue;
+    }
+
 
 
 

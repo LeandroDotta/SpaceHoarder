@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour
             rb = go.GetComponent<Rigidbody>();
             rb.AddForce(transform.TransformDirection(SpawnPoint.transform.forward) * BurstForce * -1 * rb.mass);
 
-            GameManager.Instance.SetMessStatus(go.GetComponent<Debri>().messValue);
+            GameManager.Instance.UpdateMessStatus(go.GetComponent<Debri>().messValue);
 
             yield return new WaitForSeconds(randomInterval);   
         }

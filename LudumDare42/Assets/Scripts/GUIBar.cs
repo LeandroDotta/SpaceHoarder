@@ -17,7 +17,17 @@ public class GUIBar : MonoBehaviour {
 	Image bar;
 	BarType bartype;
 
-	void Start()
+
+    private int _maxRawValue = 1000;
+
+    public int MaxRawValue
+    {
+        get { return _maxRawValue; }
+        set { _maxRawValue = value; }
+    }
+
+
+    void Start()
 	{
 		bar = this.gameObject.GetComponent<Image>();
 
@@ -28,15 +38,17 @@ public class GUIBar : MonoBehaviour {
 	}
 		
 
-	public void UpdateMessBarr(float messLevel)
+	public void UpdateMess(float value)
 	{
-		
-		//Assim que haver variáveis de bagunça, descomentar esse bloco
-		/*
-		bar.fillAmount = ((messLevel * 1.0f) / (100 * 1.0f)); //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
+        //Assim que haver variáveis de bagunça, descomentar esse bloco
+        //Debug.Log("value: " + value);
+        //Debug.Log("%: " + value / _maxRawValue);
+        bar.fillAmount = value / _maxRawValue; //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
 		ChangeBarColor ();
-		*/
+
 	}
+
+
 
 
 	public void UpdateCooldownBar(float cooldown)
@@ -48,15 +60,15 @@ public class GUIBar : MonoBehaviour {
 	{
 		if (bar.fillAmount < 0.30f)
 		{
-            _bar.color = new Color32(0, 245, 63, 255);
+            bar.color = new Color32(0, 245, 63, 255);
         }
-		else if (_bar.fillAmount < 0.55f) 
+		else if (bar.fillAmount < 0.55f) 
 		{
 			bar.color = new Color32 (245, 207, 0, 255);
 		}
 		else if(bar.fillAmount > 0.56f) 
 		{
-            _bar.color = new Color32(255, 50, 0, 255);
+            bar.color = new Color32(255, 50, 0, 255);
 		}		
 	}
 }
