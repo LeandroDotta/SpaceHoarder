@@ -161,3 +161,4 @@ MonoBehaviour:
   defaultMaterial: {fileID: 0}
   highlightMaterial: {fileID: 2100000, guid: a3384ef3e2313034f9016ad8a1f3999f, type: 2}
   _score: 10
+  messValue: 1

@@ -52,4 +52,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 0}
-  GUIbar: {fileID: 0}
+  MessBar: {fileID: 0}
