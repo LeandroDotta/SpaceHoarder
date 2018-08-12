@@ -71,17 +71,24 @@ public class Player : MonoBehaviour
         }
 #if !MOBILE_INPUT
         // walk speed multiplier
-        if (Input.GetKey(KeyCode.LeftShift)) _move *= 0.5f;
+        if (CrossPlatformInputManager.GetButton("Fire3")) { _move *= 0.5f; }
 #endif
 
-        Move(_move);
+        Move(_move);        
     }
 
     private void Move(Vector3 move)
     {
-        Debug.Log(move);
-        _rigidbody.velocity = (move * _velocity);
-        //_rigidbody.transform.LookAt(transform.TransformDirection(Vector3.forward));
+        if (move != Vector3.zero)
+        {
+            _rigidbody.transform.forward = move;
+        }
+
+        move.x *= _velocity;
+        move.y = _rigidbody.velocity.y;
+        move.z *= _velocity;        
+        
+        _rigidbody.velocity = (move);        
     }
 
     void OnDrawGizmos()
