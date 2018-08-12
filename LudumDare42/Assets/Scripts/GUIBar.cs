@@ -48,16 +48,15 @@ public class GUIBar : MonoBehaviour {
 	{
 		if (bar.fillAmount < 0.30f)
 		{
-			bar.color = new Color32 (255, 50, 0, 255);
-		}
-		else if (bar.fillAmount < 0.55f) 
+            _bar.color = new Color32(0, 245, 63, 255);
+        }
+		else if (_bar.fillAmount < 0.55f) 
 		{
 			bar.color = new Color32 (245, 207, 0, 255);
 		}
 		else if(bar.fillAmount > 0.56f) 
 		{
-			bar.color = new Color32 (0, 245, 63, 255);
-		}
-		Debug.Log ("cor atualizada");
+            _bar.color = new Color32(255, 50, 0, 255);
+		}		
 	}
 }

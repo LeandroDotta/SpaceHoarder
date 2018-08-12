@@ -5,4 +5,5 @@ interface IGrabable
 {
     void SetHighlighted(bool highlighted);
     Transform GetTransform();
+    int GetMassValue();
 }

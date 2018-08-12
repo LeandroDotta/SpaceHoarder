@@ -17,12 +17,20 @@ public class Debri : MonoBehaviour, IGrabable
     public bool Compacted = false;
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material highlightMaterial;
-
     [SerializeField] private int _score = 1;
+
+    public int messValue = 1;
+
 
     void Start()
     {
         defaultMaterial = this.GetComponentInChildren<Renderer>().sharedMaterial;
+    }
+
+
+    public int GetMassValue()
+    {
+        return messValue;
     }
 
     public int Score
