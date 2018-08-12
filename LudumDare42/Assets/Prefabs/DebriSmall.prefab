@@ -155,3 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Size: 0
   PlayerSpeedMultiplier: 1
+  IncineratorCooldown: 1
+  CompactorCooldown: 1
+  Compacted: 0
+  _score: 10

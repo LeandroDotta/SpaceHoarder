@@ -15,7 +15,7 @@ public class Debri : MonoBehaviour, IGrabable
     public float CompactorCooldown = 1.0f;
     public bool Compacted = false;
 
-    private int _score = 1;
+    [SerializeField] private int _score = 1;
 
     public int Score
     {

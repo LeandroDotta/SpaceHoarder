@@ -158,3 +158,4 @@ MonoBehaviour:
   IncineratorCooldown: 1
   CompactorCooldown: 1
   Compacted: 0
+  _score: 20
