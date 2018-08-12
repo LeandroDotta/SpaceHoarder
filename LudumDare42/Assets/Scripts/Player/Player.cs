@@ -11,8 +11,7 @@ public class Player : MonoBehaviour
     private Vector3 _camForward;             // The current forward direction of the camera
     private Vector3 _move;
     private Rigidbody _rigidbody;
-    private Vector3 _offsetToGrab = new Vector3(0f, 2f, 0f);
-    private IGrabable _itemGrabbed;
+    private Vector3 _offsetToGrab = new Vector3(0f, 2f, 0f);    
     [Range(0, 10f)]
     [SerializeField] private float _grabReach = 3f;
     [Tooltip("velocity of the player")]
@@ -43,10 +42,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
 
-        if (_itemGrabbed == null)
-        {
-           //_itemGrabbed = Grab();
-        }
+        //if (_itemGrabbed == null)
+        //{
+        //   //_itemGrabbed = Grab();
+        //}
 
     }
 

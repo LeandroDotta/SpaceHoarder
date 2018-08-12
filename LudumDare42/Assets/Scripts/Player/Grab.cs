@@ -5,7 +5,9 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Grab : MonoBehaviour
 {    
-    [SerializeField] private Collider _collider;    
+    [SerializeField] private Collider _collider;
+    private IGrabable[] _itensGrabbed;
+    private bool _isFire1Pressed = false;    
 
     private void Start()
     {
@@ -15,81 +17,55 @@ public class Grab : MonoBehaviour
         }
     }
 
-    //private void Update()
-    //{
-    //    if (CrossPlatformInputManager.GetButton("Fire1"))
-    //    {
-    //        Apply();
-    //    }
+    void Update()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        {            
+            _isFire1Pressed = true;
+            StartCoroutine(GrabCoroutine());            
+        }
+    }
 
-    //    if (CooldownCounter > 0)
-    //    {
-    //        CooldownCounter -= Time.deltaTime;
+    private IEnumerator GrabCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _isFire1Pressed = false;
+    }
 
-    //        if (CooldownCounter < 0)
-    //            CooldownCounter = 0;
-    //    }
-    //}
-    //public void Apply()
-    //{
-    //    if (CooldownCounter > 0)
-    //        return;
+    private void OnTriggerStay(Collider other)
+    {
 
-    //    _collider.enabled = true;
-    //    StartCoroutine("DisableCoroutine");
-    //    CooldownCounter = Cooldown;
-    //}
+        if (!_isFire1Pressed) { return; }
+        
+        IGrabable grabable = other.GetComponentInParent<IGrabable>();
 
-    //private IEnumerator DisableCoroutine()
-    //{
-    //    yield return new WaitForSeconds(0.1f);
-
-    //    _collider.enabled = false;
-    //}
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    IGrabable grabable = other.GetComponent<IGrabable>();
-
-    //    if (grabable != null)
-    //    {
-    //        Debug.Log("interface " + other.name);
-    //    }
-
-    //    if (other.CompareTag("Debri"))
-    //    {
-    //        Debri debri = other.GetComponent<Debri>();
-            
-    //        //Rigidbody rb = other.GetComponentInParent<Rigidbody>();
-    //        //if (rb != null)
-    //        //    rb.AddForce(transform.forward * Force, ForceMode.Impulse);
-    //    }
-    //}
+        if (grabable != null)
+        {
+            grabable.GetTransform().SetParent(this.transform);
+            Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.isKinematic = false;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         IGrabable grabable = other.GetComponentInParent<IGrabable>();
         if (grabable != null)
         {            
-            grabable.SetHighlighted(true);
-            //Debug.Log("interface " + other.name);
+            grabable.SetHighlighted(true);            
         }
         else
         {
             Debug.Log("not an IGrabable");
         }
 
-        //if (other.CompareTag("Debri"))
-        //{
-        //    Debri debri = other.GetComponent<Debri>();
-        //    debri.SetHighlighted(true);
-        //}
     }
 
     private void OnTriggerExit(Collider other)
     {
         IGrabable grabable = other.GetComponentInParent<IGrabable>();
-        if (other.CompareTag("Debri"))
+        if (grabable != null)
         {
             grabable.SetHighlighted(false);            
         }

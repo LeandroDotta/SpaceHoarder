@@ -47,4 +47,9 @@ public class Debri : MonoBehaviour, IGrabable
             this.GetComponentInChildren<Renderer>().sharedMaterial = defaultMaterial;
         }
     }
+
+    public Transform GetTransform()
+    {
+        return this.transform;
+    }
 }
