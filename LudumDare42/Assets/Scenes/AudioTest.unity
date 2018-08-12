@@ -154,19 +154,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114302500736496874, guid: fb99a0306e0c3b846978f89b59504074,
         type: 2}
-      propertyPath: _gameManager
+      propertyPath: bar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 597964976}
     - target: {fileID: 114302500736496874, guid: fb99a0306e0c3b846978f89b59504074,
         type: 2}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1270432349}
-    - target: {fileID: 114302500736496874, guid: fb99a0306e0c3b846978f89b59504074,
-        type: 2}
-      propertyPath: bar
-      value: 
-      objectReference: {fileID: 597964976}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb99a0306e0c3b846978f89b59504074, type: 2}
   m_IsPrefabAsset: 0

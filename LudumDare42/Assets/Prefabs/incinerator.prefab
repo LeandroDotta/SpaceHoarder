@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 65779706712446624}
   - component: {fileID: 114302500736496874}
   m_Layer: 0
-  m_Name: Incinerator
+  m_Name: incinerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1626352541981104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 17.37}
+  m_LocalPosition: {x: -0.13, y: 0, z: 12.337034}
   m_LocalScale: {x: 0.71705174, y: 0.94055676, z: 0.94450563}
   m_Children:
   - {fileID: 224877505367333152}
@@ -540,8 +540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfa485c1405a3d4ebdb0b5c9b8282d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bar: {fileID: 114857365878549956}
-  canvas: {fileID: 223307565207032268}
+  bar: {fileID: 0}
+  canvas: {fileID: 0}
+  sfxDestroy: {fileID: 8300000, guid: afc4e4484e10ccf4f9934c27ce94dac0, type: 3}
 --- !u!114 &114591358746552114
 MonoBehaviour:
   m_ObjectHideFlags: 1
