@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 54807300377685978}
   - component: {fileID: 114227904580249556}
   m_Layer: 0
-  m_Name: DebriMedium
+  m_Name: DebriCompactedMedium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,8 +65,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808613347878510}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.01, y: 1.97, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4485098432833904}
@@ -88,7 +88,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: a7f2acf8e66810d4ebe145a30beb5232, type: 2}
+  - {fileID: 2100000, guid: bce49bfcf2a3bf7408774fa7abd0ab49, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Size: 1
   PlayerSpeedMultiplier: 0.8
-  IncineratorCooldown: 1
+  IncineratorCooldown: 2
   CompactorCooldown: 1
-  Compacted: 0
-  _score: 20
+  Compacted: 1
+  _score: 100

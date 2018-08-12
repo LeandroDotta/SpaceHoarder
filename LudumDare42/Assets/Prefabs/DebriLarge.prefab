@@ -156,4 +156,6 @@ MonoBehaviour:
   Size: 2
   PlayerSpeedMultiplier: 0.5
   IncineratorCooldown: 1
+  CompactorCooldown: 1
+  Compacted: 0
   _score: 50
