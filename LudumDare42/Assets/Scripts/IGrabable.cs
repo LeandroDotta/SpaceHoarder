@@ -1,1 +1,3 @@
-﻿interface IGrabable { }
+﻿using System;
+
+interface IGrabable { }

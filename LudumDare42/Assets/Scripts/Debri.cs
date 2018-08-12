@@ -11,5 +11,4 @@ public class Debri : MonoBehaviour, IGrabable
 {
     public Size Size;
     public float PlayerSpeedMultiplier = 1;
-    
 }
