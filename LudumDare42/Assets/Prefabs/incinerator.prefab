@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4180319253026488}
   - component: {fileID: 65997506636901604}
   m_Layer: 0
-  m_Name: Incinerator
+  m_Name: incinerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

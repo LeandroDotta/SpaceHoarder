@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4492194129134422}
   m_Layer: 0
-  m_Name: Compactor
+  m_Name: compactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
