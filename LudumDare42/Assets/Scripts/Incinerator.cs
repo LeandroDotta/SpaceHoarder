@@ -21,11 +21,15 @@ public class Incinerator : MonoBehaviour {
 		if (CooldownCounter > 0)
 			return;
 
-		if(other.CompareTag("Debri"))
-		{
+        IGrabable grabable = other.GetComponentInParent<IGrabable>();
+
+        //if (other.CompareTag("Debri"))
+        if (grabable != null)
+        {
 		    Debri debri = other.GetComponentInParent<Debri>();
             CooldownCounter = debri.IncineratorCooldown;		    
             GameManager.Instance.AddScore(debri.Score);
+            GameManager.Instance.SetMessStatus(-grabable.GetMassValue());
 			Destroy(other.transform.parent.gameObject);
 		}
 	}

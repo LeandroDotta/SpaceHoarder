@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GUIBar GUIbar;  // Mess bar at TopRightPanel
 	private int _score = 0;
     private int debriCount = 0;
+    private int messValue = 0;
 
     private static GameManager _instance;
 
@@ -34,9 +35,15 @@ public class GameManager : MonoBehaviour
 		_score += value;
 		_scoreText.text = _score.ToString();
 
-	    debriCount++;
-        GUIbar.UpdateMessBar((float)debriCount);
+	    //debriCount++;
 	}
+
+    public void SetMessStatus(int value)
+    {
+        messValue = messValue + value;
+        GUIbar.UpdateMessBar((float)messValue);
+    }
+
 
 
 }

@@ -11,9 +11,9 @@ public class Spawner : MonoBehaviour
     public float SpawnLeastWait;
     public int StartWait;
     public bool Stop;
-    public float BurstForce = 200f;    
+    public float BurstForce = 200f;
 
-	void Start ()
+    void Start ()
 	{
         StartCoroutine(WaitSpawner());
 	}	
@@ -26,25 +26,31 @@ public class Spawner : MonoBehaviour
         {
             Rigidbody rb;
             GameObject go;
-
+            
             float random = Random.Range(0f, 1f);
             int _randomDebrisIndex;
 
             if (random < DebrisSpawnRate[0])
             {
                 _randomDebrisIndex = 0;
+
+
             } else if (random < DebrisSpawnRate[0] + DebrisSpawnRate[1])
             {
                 _randomDebrisIndex = 1;
+
             }
             else
             {
                 _randomDebrisIndex = 2;
+
             }
             float randomInterval = Random.Range(SpawnLeastWait, SpawnMostWait);
             go = (GameObject)Instantiate(VariousDebris[_randomDebrisIndex], SpawnPoint.transform.position, gameObject.transform.rotation);
             rb = go.GetComponent<Rigidbody>();
-            rb.AddForce(transform.TransformDirection(SpawnPoint.transform.forward) * BurstForce * -1 * rb.mass);            
+            rb.AddForce(transform.TransformDirection(SpawnPoint.transform.forward) * BurstForce * -1 * rb.mass);
+
+            GameManager.Instance.SetMessStatus(go.GetComponent<Debri>().messValue);
 
             yield return new WaitForSeconds(randomInterval);   
         }
