@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -11,8 +13,10 @@ public class GameManager : MonoBehaviour
     [Header("UI Panels")]
     public GUIBar MessPanel;
     public RectTransform CenterPanel;
-    [SerializeField] private Text _waveText;
+    public RectTransform GameOverPanel;
     [SerializeField] private Text _scoreText;
+    [SerializeField] private Text _debrisText;
+    [SerializeField] private Text _centerText;
 
     [Header("Waves ScriptableObjects")]
     public Wave[] Waves;
@@ -24,7 +28,7 @@ public class GameManager : MonoBehaviour
     private int _score = 0;
     private int _currentDebriCount = 0;    
     private int _currentMessValue = 0;
-    private int _currentWaveIndex = 0;
+    private int _currentWaveIndex = -1;
     private int _maxMessValue = 25;
     private float _totalWaveMessValue = 25;
 
@@ -56,15 +60,29 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
 
+        Assert.IsNotNull(_debrisText);
+        Assert.IsNotNull(_scoreText);
+        Assert.IsNotNull(_centerText);
+        Assert.IsNotNull(GameOverPanel);        
+
         Init();
     }
 
     public void Init()
-    {
+    {        
         StartNextWave();
-        MessPanel.MaxRawValue = _maxMessValue;
-        _waveText.text = _currentWaveIndex.ToString();
+        MessPanel.MaxRawValue = _maxMessValue;        
         MessPanel.UpdateMess(_currentMessValue);
+        UpdateDebriText();
+
+        // Disabling panels, just in case
+        GameOverPanel.gameObject.SetActive(false);
+        CenterPanel.gameObject.SetActive(false);
+    }
+
+    private void UpdateDebriText()
+    {
+        _debrisText.text = _currentDebriCount + "/" + _currentWave.DebrisTotal;
     }
 
 	public void AddScore(int value)
@@ -76,6 +94,7 @@ public class GameManager : MonoBehaviour
     public void UpdateMessValue(int value)
     {        
         _currentMessValue += value;
+        _currentDebriCount++;
 
         if (_currentMessValue < 0) { _currentMessValue = 0; }
 
@@ -92,17 +111,22 @@ public class GameManager : MonoBehaviour
         }
         
         MessPanel.UpdateMess((float)_currentMessValue);
+        UpdateDebriText();
     }
 
     private void GameOver()
     {
         Debug.Log("GAME OVER!");
+        StartCoroutine(ShowCenterPanelForSeconds("GAME OVER!", 5f));
+        Time.timeScale = 0f;
+        GameOverPanel.gameObject.SetActive(true);
+
         // TODO show UI GameOver with Restart and Quit buttons
     }
 
     bool IsGameOver()
     {
-        return _currentMessValue > _currentWave.MaxMessValue;
+        return _currentMessValue >= _currentWave.MaxMessValue;
     }
 
     bool HasWavedEnded()
@@ -113,12 +137,11 @@ public class GameManager : MonoBehaviour
     public void StartNextWave()
     {
         // Check if we are in the last Wave, or the first one
-        if (_currentWaveIndex == Waves.Length) { GameOverWin(); return; }
-        if (_currentWaveIndex != 0) { _currentWaveIndex++; }
+        _currentWaveIndex++;
+        if (_currentWaveIndex == Waves.Length) { GameOverWin(); return; }   
         
         // Set Wave values
-        _currentWave = Waves[_currentWaveIndex];
-        _waveText.text = _currentWave.Id.ToString();
+        _currentWave = Waves[_currentWaveIndex];        
         _totalWaveMessValue = _currentWave.MaxMessValue;
         MessPanel.MaxRawValue = (int)_totalWaveMessValue;
 
@@ -127,7 +150,7 @@ public class GameManager : MonoBehaviour
 
         MessPanel.SetBarToZero();
 
-        StartCoroutine(ShowCenterPanelForSeconds("Wave " + _currentWaveIndex + 1));
+        StartCoroutine(ShowCenterPanelForSeconds("Wave " + (_currentWaveIndex + 1)) );
     }
 
     /// <summary>
@@ -135,8 +158,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public IEnumerator ShowCenterPanelForSeconds(string textToShow, float timeToShow = 3f)
     {
-        _waveText.text = "";
-        _waveText.text = textToShow;
+        _centerText.text = "";
+        _centerText.text = textToShow;
         CenterPanel.gameObject.SetActive(true);
         yield return new WaitForSeconds(timeToShow);
         CenterPanel.gameObject.SetActive(false);
@@ -149,7 +172,19 @@ public class GameManager : MonoBehaviour
 
     private void GameOverWin()
     {
-        ShowCenterPanelForSeconds("YOU WIN!", 5f);
+        StartCoroutine(ShowCenterPanelForSeconds("YOU WIN!", 5f));
+        Time.timeScale = 0f;
+        GameOverPanel.gameObject.SetActive(true);
         // TODO if Reach last end show YOU WIN Screen!        
+    }
+
+    public void RestartLevel()
+    {        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());        
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

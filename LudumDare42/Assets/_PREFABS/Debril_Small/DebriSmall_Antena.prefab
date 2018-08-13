@@ -919,7 +919,7 @@ MonoBehaviour:
   CompactorCooldown: 1
   Compacted: 0
   defaultMaterial: {fileID: 0}
-  highlightMaterial: {fileID: 2100000, guid: 5d69df9d9d11e49d110086ba44295342, type: 2}
+  highlightMaterial: {fileID: 2100000, guid: 215977489d11178d11005b9844295342, type: 2}
   _score: 10
   messValue: 1
 --- !u!135 &135766135187720042

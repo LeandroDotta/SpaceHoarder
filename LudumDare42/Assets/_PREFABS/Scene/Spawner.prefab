@@ -144,8 +144,8 @@ MonoBehaviour:
   - 0.3
   - 0.2
   SpawnPoint: {fileID: 1877568359399370}
-  SpawnMostWait: 4
-  SpawnLeastWait: 2
+  SpawnMostWait: 1
+  SpawnLeastWait: 0.1
   StartWait: 1
   Stop: 0
   BurstForce: 500
