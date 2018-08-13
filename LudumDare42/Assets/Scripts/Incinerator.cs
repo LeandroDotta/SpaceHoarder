@@ -32,7 +32,6 @@ public class Incinerator : MonoBehaviour {
 			canvas.gameObject.SetActive (false);
 			return;
 		}
-			
 
         IGrabable grabable = other.GetComponentInParent<IGrabable>();
 
@@ -43,6 +42,9 @@ public class Incinerator : MonoBehaviour {
             Debug.Log("DECREMENTO: " + grabable.GetMassValue());
 
 		    Debri debri = other.GetComponentInParent<Debri>();
+			if(debri.IsGrabbed)
+				return;
+
             CooldownCounter = debri.IncineratorCooldown;		    
             GameManager.Instance.AddScore(debri.Score);
             GameManager.Instance.UpdateMessStatus(-grabable.GetMassValue());

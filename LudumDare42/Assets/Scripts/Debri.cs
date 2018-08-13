@@ -20,6 +20,8 @@ public class Debri : MonoBehaviour, IGrabable
     [SerializeField] private int _score = 1;
 
     public int messValue = 1;
+    
+    public bool IsGrabbed { get; set; }
 
 
     void Start()

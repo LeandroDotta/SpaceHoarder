@@ -32,6 +32,8 @@ public class Grab : MonoBehaviour
                     rb.useGravity = true;
                     rb.isKinematic = false;
                     rb.transform.SetParent(null);
+
+                    grabable.IsGrabbed = false;
                 }
 
                 _itemsGrabbed.Clear();
@@ -67,6 +69,7 @@ public class Grab : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
             // rb.transform.localPosition = Vector3.zero;
 
+            grabable.IsGrabbed = true;
             _grabbing = true;
 
             _itemsGrabbed.Add(grabable);

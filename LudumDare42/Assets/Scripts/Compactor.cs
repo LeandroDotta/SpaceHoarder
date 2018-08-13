@@ -43,7 +43,7 @@ public class Compactor : MonoBehaviour
         {
             Debri debri = other.GetComponentInParent<Debri>();
 
-			if(debri.Size == Size.Small)
+			if(debri.IsGrabbed || debri.Size == Size.Small)
 				return;
 			
 			CooldownCounter = debri.CompactorCooldown;
