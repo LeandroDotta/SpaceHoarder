@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.Assertions;
-
    
 public class Player : MonoBehaviour
 {        
@@ -16,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _grabReach = 3f;
     [Tooltip("velocity of the player")]
     [Range(0, 100f)]
-    [SerializeField] private float _velocity = 10f;
+    [SerializeField] private float _velocity = 17f;
 
     private void Awake()
     {
@@ -25,8 +24,7 @@ public class Player : MonoBehaviour
     }
 
     private void Start()
-    {
-        // get the transform of the main camera
+    {        
         if (Camera.main != null)
         {
             _cam = Camera.main.transform;
@@ -37,19 +35,7 @@ public class Player : MonoBehaviour
                 "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);         
         }
     }
-
-
-    private void Update()
-    {
-
-        //if (_itemGrabbed == null)
-        //{
-        //   //_itemGrabbed = Grab();
-        //}
-
-    }
-
-    // Fixed update is called in sync with physics
+    
     private void FixedUpdate()
     {
         // read inputs
@@ -70,7 +56,7 @@ public class Player : MonoBehaviour
         }
 #if !MOBILE_INPUT
         // walk speed multiplier
-        if (CrossPlatformInputManager.GetButton("Fire3")) { _move *= 0.5f; }
+        // if (CrossPlatformInputManager.GetButton("Fire3")) { _move *= 1.2f; }
 #endif
 
         Move(_move);        
@@ -86,14 +72,7 @@ public class Player : MonoBehaviour
         move.x *= _velocity;
         move.y = _rigidbody.velocity.y;
         move.z *= _velocity;        
-        
-        _rigidbody.velocity = (move);        
-    }
-
-    void OnDrawGizmos()
-    {
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawLine(transform.position + _offsetToGrab, (transform.TransformDirection(Vector3.forward))  + _offsetToGrab);
+        _rigidbody.velocity = (move.normalized * _velocity);
     }
 
     private IGrabable Grab()
@@ -109,7 +88,6 @@ public class Player : MonoBehaviour
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
             Debug.Log("Did not Hit");
         }
-
 
         return null;
     }

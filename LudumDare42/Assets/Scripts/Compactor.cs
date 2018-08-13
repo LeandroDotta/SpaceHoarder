@@ -18,6 +18,7 @@ public class Compactor : MonoBehaviour
     public AudioClip sfxSpawn;
 
     public float CooldownCounter { get; private set; }
+    public bool IsCoolingDown { get{ return CooldownCounter > 0; } }
 
     void Update()
     {
@@ -26,6 +27,7 @@ public class Compactor : MonoBehaviour
             if (CooldownCounter > 0)
             {
                 CooldownCounter -= Time.deltaTime;
+                bar.UpdateCooldownBar(CooldownCounter);
 
                 if (CooldownCounter < 0)
                     CooldownCounter = 0;
@@ -50,6 +52,8 @@ public class Compactor : MonoBehaviour
 			StartCoroutine(SpawnCoroutine(debri.Size, debri.CompactorCooldown));
 
             Destroy(other.transform.parent.gameObject);
+
+            canvas.gameObject.SetActive(true);
         }
     }
 
@@ -68,5 +72,7 @@ public class Compactor : MonoBehaviour
             rb.AddForce(spawnPoint.forward * exitForce, ForceMode.Impulse);
 
         SoundEffects.Instance.Play(sfxSpawn);
+
+        canvas.gameObject.SetActive(false);
     }
 }

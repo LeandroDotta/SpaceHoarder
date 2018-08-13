@@ -45,10 +45,11 @@ public class Spawner : MonoBehaviour
                 _randomDebrisIndex = 2;
 
             }
+            Vector3 offsetVector = new Vector3(Random.Range(-0.4f,0.4f), 0, Random.Range(-0.4f, 0.4f));
             float randomInterval = Random.Range(SpawnLeastWait, SpawnMostWait);
             go = (GameObject)Instantiate(VariousDebris[_randomDebrisIndex], SpawnPoint.transform.position, gameObject.transform.rotation);
             rb = go.GetComponent<Rigidbody>();
-            rb.AddForce(transform.TransformDirection(SpawnPoint.transform.forward) * BurstForce * -1 * rb.mass);
+            rb.AddForce(transform.TransformDirection(SpawnPoint.transform.forward + offsetVector) * BurstForce * -1 * rb.mass);
 
             GameManager.Instance.UpdateMessStatus(go.GetComponent<Debri>().messValue);
 

@@ -122,7 +122,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808613347878510}
   serializedVersion: 2
-  m_Mass: 4
+  m_Mass: 7
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -156,7 +156,7 @@ MonoBehaviour:
   Size: 1
   PlayerSpeedMultiplier: 0.8
   IncineratorCooldown: 1
-  CompactorCooldown: 1
+  CompactorCooldown: 2
   Compacted: 0
   defaultMaterial: {fileID: 0}
   highlightMaterial: {fileID: 2100000, guid: d257ab42eb6733541bc66d7b5c6edf7c, type: 2}
