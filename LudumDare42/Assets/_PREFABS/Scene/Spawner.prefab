@@ -127,11 +127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallDebris:
   - {fileID: 1970255789361264, guid: 5c026a94a40bef84e9fa26e702346c6d, type: 2}
-  - {fileID: 1970255789361264, guid: 03b678d519cf85a4da139fcd52a7c900, type: 2}
   - {fileID: 1970255789361264, guid: a8bcf4c2468fbd64a97599a9589ec0ae, type: 2}
   - {fileID: 1970255789361264, guid: 84823579e8582934d982605995ceb5a0, type: 2}
   MediumDebris:
-  - {fileID: 1808613347878510, guid: aa7953cfdc93487478497913ac34a2e7, type: 2}
   - {fileID: 1808613347878510, guid: ea60c98febb1de448ae65a13b8b6128a, type: 2}
   - {fileID: 1808613347878510, guid: 4869527672722b941a1038265086fef8, type: 2}
   - {fileID: 1808613347878510, guid: 86fc9cd91d8f6d54384291943cac494b, type: 2}
