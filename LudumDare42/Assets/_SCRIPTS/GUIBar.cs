@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public enum BarType
-{
-	MessBar,
-	Incinerator,
-	Compactor
-};
-
+//public enum BarType
+//{
+//	MessBar,
+//	Incinerator,
+//	Compactor
+//};
 
 public class GUIBar : MonoBehaviour {
 
 	Image bar;
-	BarType bartype;
-
+	//BarType bartype;
 
     private int _maxRawValue = 1000;
 
@@ -26,49 +23,39 @@ public class GUIBar : MonoBehaviour {
         set { _maxRawValue = value; }
     }
 
-
-    void Start()
+    void Awake()
 	{
 		bar = this.gameObject.GetComponent<Image>();
 
-        setBarToZero();
+        SetBarToZero();
 
-        if (bartype == BarType.Incinerator)
-		{
+  //      if (bartype == BarType.Incinerator)
+		//{
 			
-		}
+		//}
 	}
-		
 
 	public void UpdateMess(float value)
 	{
-        //Assim que haver variáveis de bagunça, descomentar esse bloco
-        //Debug.Log("value: " + value);
-        //Debug.Log("%: " + value / _maxRawValue);
-
         if (value > 0)
         {
-            bar.fillAmount = (float)value / (float)_maxRawValue; //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
+            bar.fillAmount = (float)value / (float)_maxRawValue;
             ChangeBarColor();
         }
         else
         {
             bar.fillAmount = 0;
         }
-
-        
-
 	}
 
-    public void setBarToZero()
+    public void SetBarToZero()
     {
         bar.fillAmount = 0;
     }
 
-
 	public void UpdateCooldownBar(float cooldown)
-	{
-		bar.fillAmount = ((cooldown * 1.0f) / (100 * 1.0f)); //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
+	{        
+        bar.fillAmount = ((cooldown * 1.0f) / (100 * 1.0f));
 	}
 
 	public void ChangeBarColor()

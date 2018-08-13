@@ -1,24 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+	//public enum StateMachine { Title, Game, Pause, GameOver };
+	//public StateMachine state = StateMachine.Title;
+
+    [Header("UI Panels")]
+    public GUIBar MessPanel;
+    public RectTransform CenterPanel;
+    [SerializeField] private Text _waveText;
     [SerializeField] private Text _scoreText;
-    [SerializeField] private Text _WaveText;
 
-	public enum StateMachine { Title, Game, Pausa, GameOver };
-	public StateMachine state = StateMachine.Title;
+    [Header("Waves ScriptableObjects")]
+    public Wave[] Waves;
 
-    public GUIBar MessBar;  // Mess bar at TopRightPanel
-    public Spawner[] waveSpawn;
+    [Header("Spawners")]
+    public Spawner[] Spawners;
+
+    private Wave _currentWave;
     private int _score = 0;
-    private int debriCount = 0;
-    private int actualMessValue = 0;
-    private int accruedMessValue = 0;
-
-    private int _waveNumber = 1;
+    private int _currentDebriCount = 0;    
+    private int _currentMessValue = 0;
+    private int _currentWaveIndex = 0;
     private int _maxMessValue = 25;
     private float _totalWaveMessValue = 25;
 
@@ -53,12 +59,12 @@ public class GameManager : MonoBehaviour
         Init();
     }
 
-
     public void Init()
     {
-        MessBar.MaxRawValue = _maxMessValue;
-        _WaveText.text = _waveNumber.ToString();
-        //MessBar.UpdateMess();
+        StartNextWave();
+        MessPanel.MaxRawValue = _maxMessValue;
+        _waveText.text = _currentWaveIndex.ToString();
+        MessPanel.UpdateMess(_currentMessValue);
     }
 
 	public void AddScore(int value)
@@ -67,62 +73,83 @@ public class GameManager : MonoBehaviour
 		_scoreText.text = _score.ToString();
 	}
 
-    public void UpdateMessStatus(int value)
+    public void UpdateMessValue(int value)
     {
-        
         if (value > 0)
         {
-            accruedMessValue += value;
+            _currentMessValue += value;
         }
-
-        actualMessValue += value;
-        MessBar.UpdateMess((float)actualMessValue);
 
         if (IsGameOver())
         {
-            Debug.Log("GAME OVER!");
+            GameOver();
+            return;
         }
 
-        //if (EndWave())
-        //{
-        //    StartNewWave();
-        //}
+        if (HasWavedEnded())
+        {
+            StartNextWave();
+            return;
+        }
+        
+        MessPanel.UpdateMess((float)_currentMessValue);
+    }
 
+    private void GameOver()
+    {
+        Debug.Log("GAME OVER!");
+        // TODO show UI GameOver with Restart and Quit buttons
     }
 
     bool IsGameOver()
     {
-        return actualMessValue > _maxMessValue;
+        return _currentMessValue > _currentWave.MaxMessValue;
     }
 
-    bool EndWave()
+    bool HasWavedEnded()
     {
-        return accruedMessValue > _totalWaveMessValue;
+        return _currentDebriCount > _currentWave.DebrisTotal;
     }
 
-    public void StartNewWave()
+    public void StartNextWave()
     {
+        // Check if we are in the last Wave, or the first one
+        if (_currentWaveIndex == Waves.Length) { GameOverWin(); return; }
+        if (_currentWaveIndex != 0) { _currentWaveIndex++; }
+        
+        // Set Wave values
+        _currentWave = Waves[_currentWaveIndex];
+        _waveText.text = _currentWave.Id.ToString();
+        _totalWaveMessValue = _currentWave.MaxMessValue;
 
-        //foreach (var Spawner in waveSpawn)
-        //{
-        //    Spawner.SpawnLeastWait *= 0.90f;
-        //    Spawner.SpawnMostWait *= 0.90f;
-        //    Spawner.DebrisSpawnRate[0] -= 0.05f;
-        //    Spawner.DebrisSpawnRate[1] += 0.03f;
-        //    Spawner.DebrisSpawnRate[2] += 0.02f;
-        //}
+        _currentMessValue = 0;
+        _currentDebriCount = 0;               
 
-        //_totalWaveMessValue = _totalWaveMessValue * 1.5f;
+        MessPanel.SetBarToZero();
 
-        //accruedMessValue = 0;
-        //actualMessValue = 0;
-        //_waveNumber += 1;
-
-        //MessBar.setBarToZero();
-
-        //_WaveText.text = _waveNumber.ToString();
-
-        //Debug.Log("WAVE: " + _waveNumber);
+        StartCoroutine(ShowCenterPanelForSeconds("Wave " + _currentWaveIndex + 1));
     }
 
+    /// <summary>
+    /// Shows the CenterPanel for a couple seconds, default is 3s
+    /// </summary>
+    public IEnumerator ShowCenterPanelForSeconds(string textToShow, float timeToShow = 3f)
+    {
+        _waveText.text = "";
+        _waveText.text = textToShow;
+        CenterPanel.gameObject.SetActive(true);
+        yield return new WaitForSeconds(timeToShow);
+        CenterPanel.gameObject.SetActive(false);
+    }
+
+    private void HideWaveUI()
+    {
+        CenterPanel.gameObject.SetActive(false);
+    }
+
+    private void GameOverWin()
+    {
+        ShowCenterPanelForSeconds("YOU WIN!", 5f);
+        // TODO if Reach last end show YOU WIN Screen!        
+    }
 }

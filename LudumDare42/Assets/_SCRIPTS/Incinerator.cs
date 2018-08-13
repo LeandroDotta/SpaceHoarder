@@ -47,7 +47,7 @@ public class Incinerator : MonoBehaviour {
 
             CooldownCounter = debri.IncineratorCooldown;		    
             GameManager.Instance.AddScore(debri.Score);
-            GameManager.Instance.UpdateMessStatus(-grabable.GetMassValue());
+            GameManager.Instance.UpdateMessValue(-grabable.GetMassValue());
 			Destroy(other.transform.parent.gameObject);
 			canvas.gameObject.SetActive (true);
 

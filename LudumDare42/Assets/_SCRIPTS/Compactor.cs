@@ -37,7 +37,7 @@ public class Compactor : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Collided");
+        //Debug.Log("Collided");
         if (CooldownCounter > 0)
             return;
 

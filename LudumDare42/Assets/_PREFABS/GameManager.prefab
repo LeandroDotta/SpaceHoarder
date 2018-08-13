@@ -51,10 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22179fe674ee7644b86acbb9c149cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MessPanel: {fileID: 0}
+  CenterPanel: {fileID: 0}
+  _waveText: {fileID: 0}
   _scoreText: {fileID: 0}
-  _WaveText: {fileID: 0}
-  MessBar: {fileID: 0}
-  waveSpawn:
-  - {fileID: 0}
-  - {fileID: 0}
+  Waves:
+  - {fileID: 11400000, guid: c8d58fea58a5fb44f8dd9d65491fb56d, type: 2}
+  - {fileID: 11400000, guid: a1ec3b12c39126249b42f9f03e6ec060, type: 2}
+  Spawners:
   - {fileID: 0}
