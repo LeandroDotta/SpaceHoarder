@@ -5,6 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Grab : MonoBehaviour
 {
+    public Transform grabedTransform;
     [SerializeField] private Collider _collider;
     private List<IGrabable> _itemsGrabbed;
     private bool _isFire1Pressed = false;
@@ -61,18 +62,19 @@ public class Grab : MonoBehaviour
 
         if (grabable != null)
         {
-            grabable.GetTransform().SetParent(this.transform);
+            grabable.GetTransform().SetParent(grabedTransform);
             Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
             rb.useGravity = false;
             rb.isKinematic = true;
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
-            // rb.transform.localPosition = Vector3.zero;
+            rb.transform.localPosition = Vector3.zero;
 
             grabable.IsGrabbed = true;
             _grabbing = true;
 
             _itemsGrabbed.Add(grabable);
+            _isFire1Pressed = false;
         }
     }
 
@@ -87,7 +89,6 @@ public class Grab : MonoBehaviour
         {
             Debug.Log("not an IGrabable");
         }
-
     }
 
     private void OnTriggerExit(Collider other)
