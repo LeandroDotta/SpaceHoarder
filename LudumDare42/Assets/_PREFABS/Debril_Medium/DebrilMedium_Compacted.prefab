@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4505722538807586}
   - component: {fileID: 54807300377685978}
   - component: {fileID: 114227904580249556}
+  - component: {fileID: 65777005653346432}
   m_Layer: 0
   m_Name: DebrilMedium_Compacted
   m_TagString: Untagged
@@ -65,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808613347878510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.94, y: 5.36, z: 11.631028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087986426160754}
@@ -129,6 +130,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65777005653346432
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808613347878510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &114227904580249556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +159,6 @@ MonoBehaviour:
   CompactorCooldown: 1
   Compacted: 1
   defaultMaterial: {fileID: 0}
-  highlightMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: 5d69df9d9d11e49d110086ba44295342, type: 2}
   _score: 100
   messValue: 10

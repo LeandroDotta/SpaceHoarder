@@ -64,14 +64,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1157975825032330}
-  m_LocalRotation: {x: 0.35840523, y: -0.6095455, z: 0.6095455, w: 0.35840523}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.21508177, y: -0.67360216, z: 0.67360216, w: -0.21508177}
+  m_LocalPosition: {x: -10, y: 5.33, z: 12.1}
   m_LocalScale: {x: 3, y: 0.2, z: 3}
   m_Children:
   - {fileID: 4308768267874286}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90.00001, y: -119.09, z: -58.034004}
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 35.416992}
 --- !u!23 &23815812493268918
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -125,14 +125,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea336b91832e154393e6fdee0fedb6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VariousDebris:
+  SmallDebris:
+  - {fileID: 1970255789361264, guid: 5c026a94a40bef84e9fa26e702346c6d, type: 2}
+  - {fileID: 1970255789361264, guid: 03b678d519cf85a4da139fcd52a7c900, type: 2}
   - {fileID: 1970255789361264, guid: a8bcf4c2468fbd64a97599a9589ec0ae, type: 2}
-  - {fileID: 1808613347878510, guid: b13e370f8dfeace4fb6e5dfc240a8264, type: 2}
-  - {fileID: 1222053849499536, guid: 77eda2b446ca6d349a771d3b7c207445, type: 2}
+  - {fileID: 1970255789361264, guid: 84823579e8582934d982605995ceb5a0, type: 2}
+  MediumDebris:
+  - {fileID: 1808613347878510, guid: aa7953cfdc93487478497913ac34a2e7, type: 2}
+  - {fileID: 1808613347878510, guid: ea60c98febb1de448ae65a13b8b6128a, type: 2}
+  - {fileID: 1808613347878510, guid: 4869527672722b941a1038265086fef8, type: 2}
+  - {fileID: 1808613347878510, guid: 86fc9cd91d8f6d54384291943cac494b, type: 2}
+  LargeDebris:
+  - {fileID: 1222053849499536, guid: 3f348d5e734e58e419c07e813db451b1, type: 2}
+  - {fileID: 1222053849499536, guid: 1f3dd7861971e4f4ba51193c97ab44c8, type: 2}
+  - {fileID: 1222053849499536, guid: 5d21cb9b4ec779247bcf9c2d6c303114, type: 2}
   DebrisSpawnRate:
-  - 1
-  - 0
-  - 0
+  - 0.5
+  - 0.3
+  - 0.2
   SpawnPoint: {fileID: 1877568359399370}
   SpawnMostWait: 4
   SpawnLeastWait: 2

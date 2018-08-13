@@ -350,28 +350,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114356727396085208, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8,
-        type: 2}
-      propertyPath: VariousDebris.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114356727396085208, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8,
-        type: 2}
-      propertyPath: VariousDebris.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4945625822864284, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4945625822864284, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 4945625822864284, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 35.416992
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8, type: 2}
   m_IsPrefabAsset: 0

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4045110612751904}
   - component: {fileID: 54994894872152648}
   - component: {fileID: 114833051867995176}
+  - component: {fileID: 136140032638567544}
   m_Layer: 0
   m_Name: DebriLarge_Sputinik
   m_TagString: Untagged
@@ -96,7 +97,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4038275148231996}
-  - component: {fileID: 136451365921564522}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -218,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222053849499536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.216897, y: 2.7049127, z: 11.514242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4038275148231996}
@@ -441,16 +441,16 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: 215977489d11178d11005b9844295342, type: 2}
   _score: 50
   messValue: 10
---- !u!136 &136451365921564522
+--- !u!136 &136140032638567544
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1561292433974896}
+  m_GameObject: {fileID: 1222053849499536}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.09
-  m_Height: 1
+  m_Radius: 1.82
+  m_Height: 7.75
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 3.94, z: 0}

@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get { return _instance; } }
 
-
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -70,8 +69,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateMessStatus(int value)
     {
-
-        //Debug.Log("INCREMENTO: " + value + " - TOTAL: " + (actualMessValue + value));
+        
         if (value > 0)
         {
             accruedMessValue += value;
@@ -82,13 +80,13 @@ public class GameManager : MonoBehaviour
 
         if (IsGameOver())
         {
-            Debug.Log("GAME OVE!!!!!!");
+            Debug.Log("GAME OVER!");
         }
 
-        if (EndWave())
-        {
-            StartNewWave();
-        }
+        //if (EndWave())
+        //{
+        //    StartNewWave();
+        //}
 
     }
 
@@ -105,26 +103,26 @@ public class GameManager : MonoBehaviour
     public void StartNewWave()
     {
 
-        foreach (var Spawner in waveSpawn)
-        {
-            Spawner.SpawnLeastWait *= 0.90f;
-            Spawner.SpawnMostWait *= 0.90f;
-            Spawner.DebrisSpawnRate[0] -= 0.05f;
-            Spawner.DebrisSpawnRate[1] += 0.03f;
-            Spawner.DebrisSpawnRate[2] += 0.02f;
-        }
+        //foreach (var Spawner in waveSpawn)
+        //{
+        //    Spawner.SpawnLeastWait *= 0.90f;
+        //    Spawner.SpawnMostWait *= 0.90f;
+        //    Spawner.DebrisSpawnRate[0] -= 0.05f;
+        //    Spawner.DebrisSpawnRate[1] += 0.03f;
+        //    Spawner.DebrisSpawnRate[2] += 0.02f;
+        //}
 
-        _totalWaveMessValue = _totalWaveMessValue * 1.5f;
+        //_totalWaveMessValue = _totalWaveMessValue * 1.5f;
 
-        accruedMessValue = 0;
-        actualMessValue = 0;
-        _waveNumber += 1;
+        //accruedMessValue = 0;
+        //actualMessValue = 0;
+        //_waveNumber += 1;
 
-        MessBar.setBarToZero();
+        //MessBar.setBarToZero();
 
-        _WaveText.text = _waveNumber.ToString();
+        //_WaveText.text = _waveNumber.ToString();
 
-        Debug.Log("WAVE: " + _waveNumber);
+        //Debug.Log("WAVE: " + _waveNumber);
     }
 
 }

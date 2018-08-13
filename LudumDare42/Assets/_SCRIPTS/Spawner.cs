@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject[] VariousDebris;
-    public float[] DebrisSpawnRate;
+    public GameObject[] SmallDebris;
+    private GameObject _debrisPrefabToSpawn;
+    public GameObject[] MediumDebris;
+    public GameObject[] LargeDebris;
+
+    public float[] DebrisSpawnRate = {0.5f, 0.3f, 0.2f};
     public GameObject SpawnPoint;
     public float SpawnMostWait;
     public float SpawnLeastWait;
@@ -28,32 +32,31 @@ public class Spawner : MonoBehaviour
             GameObject go;
             
             float random = Random.Range(0f, 1f);
-            int _randomDebrisIndex;
 
             if (random < DebrisSpawnRate[0])
             {
-                _randomDebrisIndex = 0;
-
-
+                // spawn small
+                _debrisPrefabToSpawn = SmallDebris[Random.Range(0, SmallDebris.Length)];
+                
             } else if (random < DebrisSpawnRate[0] + DebrisSpawnRate[1])
             {
-                _randomDebrisIndex = 1;
-
+                // spawn medium
+                _debrisPrefabToSpawn = MediumDebris[Random.Range(0, MediumDebris.Length)];
             }
             else
             {
-                _randomDebrisIndex = 2;
-
+                // spawn large
+                _debrisPrefabToSpawn = LargeDebris[Random.Range(0, LargeDebris.Length)];
             }
-            Vector3 offsetVector = new Vector3(Random.Range(-0.4f,0.4f), 0, Random.Range(-0.4f, 0.4f));
-            float randomInterval = Random.Range(SpawnLeastWait, SpawnMostWait);
-            go = (GameObject)Instantiate(VariousDebris[_randomDebrisIndex], SpawnPoint.transform.position, gameObject.transform.rotation);
+
+            Vector3 offsetVector = new Vector3(Random.Range(-0.4f,0.4f), 0, Random.Range(-0.4f, 0.4f));            
+            go = (GameObject)Instantiate(_debrisPrefabToSpawn, SpawnPoint.transform.position, gameObject.transform.rotation);
             rb = go.GetComponent<Rigidbody>();
             rb.AddForce(transform.TransformDirection(SpawnPoint.transform.forward + offsetVector) * BurstForce * -1 * rb.mass);
 
             GameManager.Instance.UpdateMessStatus(go.GetComponent<Debri>().messValue);
 
-            yield return new WaitForSeconds(randomInterval);   
+            yield return new WaitForSeconds(Random.Range(SpawnLeastWait, SpawnMostWait));   
         }
     }
 
