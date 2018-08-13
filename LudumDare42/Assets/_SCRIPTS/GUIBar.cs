@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 //public enum BarType
@@ -10,9 +11,10 @@ using UnityEngine.UI;
 //	Compactor
 //};
 
-public class GUIBar : MonoBehaviour {
+public class GUIBar : MonoBehaviour
+{
 
-	Image bar;
+	Image _bar;
 	//BarType bartype;
 
     private int _maxRawValue = 1000;
@@ -25,52 +27,48 @@ public class GUIBar : MonoBehaviour {
 
     void Awake()
 	{
-		bar = this.gameObject.GetComponent<Image>();
+		_bar = this.gameObject.GetComponent<Image>();
 
+	    Assert.IsNotNull(_bar);
         SetBarToZero();
-
-  //      if (bartype == BarType.Incinerator)
-		//{
-			
-		//}
-	}
+    }
 
 	public void UpdateMess(float value)
 	{
         if (value > 0)
         {
-            bar.fillAmount = (float)value / (float)_maxRawValue;
+            _bar.fillAmount = (float)value / (float)_maxRawValue;
             ChangeBarColor();
         }
         else
         {
-            bar.fillAmount = 0;
+            _bar.fillAmount = 0;
         }
 	}
 
     public void SetBarToZero()
     {
-        bar.fillAmount = 0;
+        _bar.fillAmount = 0;
     }
 
 	public void UpdateCooldownBar(float cooldown)
 	{        
-        bar.fillAmount = ((cooldown * 1.0f) / (100 * 1.0f));
+        _bar.fillAmount = ((cooldown * 1.0f) / (100 * 1.0f));
 	}
 
 	public void ChangeBarColor()
 	{
-		if (bar.fillAmount < 0.30f)
+		if (_bar.fillAmount < 0.30f)
 		{
-            bar.color = new Color32(0, 245, 63, 255);
+            _bar.color = new Color32(0, 245, 63, 255);
         }
-		else if (bar.fillAmount < 0.55f) 
+		else if (_bar.fillAmount < 0.55f) 
 		{
-			bar.color = new Color32 (245, 207, 0, 255);
+			_bar.color = new Color32 (245, 207, 0, 255);
 		}
-		else if(bar.fillAmount > 0.56f) 
+		else if(_bar.fillAmount > 0.56f) 
 		{
-            bar.color = new Color32(255, 50, 0, 255);
+            _bar.color = new Color32(255, 50, 0, 255);
 		}		
 	}
 }

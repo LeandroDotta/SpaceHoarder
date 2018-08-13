@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public class Incinerator : MonoBehaviour {
@@ -11,7 +12,13 @@ public class Incinerator : MonoBehaviour {
 
 	[Header("Sound Effects")]
 	public AudioClip sfxDestroy;
-	
+
+    private void Awake()
+    {
+        Assert.IsNotNull(bar);
+        Assert.IsNotNull(canvas);
+    }
+
 	void Update ()
 	{
 		if(CooldownCounter > 0)
@@ -38,12 +45,10 @@ public class Incinerator : MonoBehaviour {
         //if (other.CompareTag("Debri"))
         if (grabable != null)
         {
-
             //Debug.Log("DECREMENTO: " + grabable.GetMassValue());
 
 		    Debri debri = other.GetComponentInParent<Debri>();
-			if(debri.IsGrabbed)
-				return;
+			if(debri.IsGrabbed) { return; }
 
             CooldownCounter = debri.IncineratorCooldown;		    
             GameManager.Instance.AddScore(debri.Score);

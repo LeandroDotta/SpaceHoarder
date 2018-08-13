@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
         _currentMessValue = 0;
         _currentDebriCount = 0;               
 
-        MessPanel.SetBarToZero();
+        //MessPanel.SetBarToZero();        
 
         StartCoroutine(ShowCenterPanelForSeconds("Wave " + _currentWaveIndex + 1));
     }
