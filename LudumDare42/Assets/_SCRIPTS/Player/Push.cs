@@ -6,7 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Push : MonoBehaviour 
 {
 	public float Force = 200f;
-	public float Cooldown = 3f;
+	public float Cooldown = 2f;
 	[SerializeField] private Collider _trigger;
 
 	public float CooldownCounter { get; private set; }
