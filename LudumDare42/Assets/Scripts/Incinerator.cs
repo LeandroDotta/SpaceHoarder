@@ -19,7 +19,12 @@ public class Incinerator : MonoBehaviour {
 			CooldownCounter -= Time.deltaTime;
 			canvas.gameObject.SetActive (true);
 			bar.UpdateCooldownBar (CooldownCounter);
-			if(CooldownCounter < 0) CooldownCounter = 0;
+			if(CooldownCounter < 0)
+            {
+                CooldownCounter = 0;
+                bar.ResetCooldownBar();
+            }
+
 		}
 
 		if(CooldownCounter > 0 && canvas.gameObject.activeSelf == false) canvas.gameObject.SetActive (true);

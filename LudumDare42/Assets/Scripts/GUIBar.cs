@@ -68,10 +68,17 @@ public class GUIBar : MonoBehaviour {
 
 	public void UpdateCooldownBar(float cooldown)
 	{
-		bar.fillAmount = ((cooldown * 1.0f) / (100 * 1.0f)); //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
+        //bar.fillAmount = ((cooldown * 1.0f) / (100 * 1.0f)); //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
+        bar.fillAmount += ((cooldown * 1.0f) / (100 * 1.0f)); //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
 	}
 
-	public void ChangeBarColor()
+    public void ResetCooldownBar()
+    {
+        bar.fillAmount = 0;
+    }
+
+
+    public void ChangeBarColor()
 	{
 		if (bar.fillAmount < 0.30f)
 		{

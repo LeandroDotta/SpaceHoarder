@@ -30,7 +30,11 @@ public class Compactor : MonoBehaviour
                 bar.UpdateCooldownBar(CooldownCounter);
 
                 if (CooldownCounter < 0)
+                {
                     CooldownCounter = 0;
+                    bar.ResetCooldownBar();
+                }
+
             }
         }
     }
