@@ -38,10 +38,9 @@ GameObject:
   - component: {fileID: 4045110612751904}
   - component: {fileID: 54994894872152648}
   - component: {fileID: 114833051867995176}
-  - component: {fileID: 136990865620400974}
   m_Layer: 0
   m_Name: DebriLarge_RobotClaw
-  m_TagString: Untagged
+  m_TagString: Debri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,9 +87,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4582870460220812}
+  - component: {fileID: 136127667524447698}
   m_Layer: 0
   m_Name: model
-  m_TagString: Untagged
+  m_TagString: Debri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222053849499536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.694889, y: 6.971542, z: -14.413838}
+  m_LocalPosition: {x: -7.0330005, y: 0.26389557, z: 2.3553398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4582870460220812}
@@ -471,16 +471,16 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: 5d69df9d9d11e49d110086ba44295342, type: 2}
   _score: 50
   messValue: 5
---- !u!136 &136990865620400974
+--- !u!136 &136127667524447698
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1222053849499536}
+  m_GameObject: {fileID: 1719516969810108}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.23
-  m_Height: 6.06
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.44, z: 0}
+  m_Radius: 0.70368683
+  m_Height: 3.1937013
+  m_Direction: 0
+  m_Center: {x: -1.299876, y: -0.044723276, z: -0.039702903}

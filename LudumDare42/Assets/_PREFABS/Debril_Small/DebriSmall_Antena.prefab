@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 135766135187720042}
   m_Layer: 0
   m_Name: antena
-  m_TagString: Untagged
+  m_TagString: Debri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 114271025147774874}
   m_Layer: 0
   m_Name: DebriSmall_Antena
-  m_TagString: Untagged
+  m_TagString: Debri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

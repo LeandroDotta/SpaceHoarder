@@ -70,9 +70,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4978158782830014}
+  - component: {fileID: 65250435679131250}
   m_Layer: 0
   m_Name: panel
-  m_TagString: Untagged
+  m_TagString: Debri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,10 +105,9 @@ GameObject:
   - component: {fileID: 4505722538807586}
   - component: {fileID: 54807300377685978}
   - component: {fileID: 114227904580249556}
-  - component: {fileID: 65856384366562306}
   m_Layer: 0
   m_Name: DebriMedium_Panel
-  m_TagString: Untagged
+  m_TagString: Debri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808613347878510}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 10.008312, y: 4.8090105, z: -11.665191}
+  m_LocalPosition: {x: 2.688641, y: 13.638493, z: -12.874312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4978158782830014}
@@ -378,18 +378,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65856384366562306
+--- !u!65 &65250435679131250
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808613347878510}
+  m_GameObject: {fileID: 1367378999665222}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.6, y: 2.9, z: 3.1}
-  m_Center: {x: 0, y: 1.79, z: -0.3}
+  m_Size: {x: 1.3042516, y: 1, z: 1.678716}
+  m_Center: {x: 0, y: 0, z: -0.16382775}
 --- !u!114 &114227904580249556
 MonoBehaviour:
   m_ObjectHideFlags: 1

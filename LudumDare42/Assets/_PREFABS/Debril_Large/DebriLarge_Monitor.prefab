@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4110061483837050}
   - component: {fileID: 33603846747031500}
   - component: {fileID: 23780370995050000}
+  - component: {fileID: 65599684077760444}
   m_Layer: 0
   m_Name: monitor
-  m_TagString: Untagged
+  m_TagString: Debri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,10 +39,9 @@ GameObject:
   - component: {fileID: 4045110612751904}
   - component: {fileID: 54994894872152648}
   - component: {fileID: 114833051867995176}
-  - component: {fileID: 65996496383537844}
   m_Layer: 0
   m_Name: DebriLarge_Monitor
-  m_TagString: Untagged
+  m_TagString: Debri
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222053849499536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.17975, y: 4.906739, z: -15.988817}
+  m_LocalPosition: {x: -3.2006276, y: 14.419624, z: -12.874313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4110061483837050}
@@ -130,18 +130,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65996496383537844
+--- !u!65 &65599684077760444
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1222053849499536}
+  m_GameObject: {fileID: 1153130008618366}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.85, y: 5.62, z: 5.09}
-  m_Center: {x: 0, y: 2.5, z: 0}
+  m_Size: {x: 1.060826, y: 1.2738618, z: 1.4321045}
+  m_Center: {x: 0.008915822, y: 0.6352307, z: -0.15997453}
 --- !u!114 &114833051867995176
 MonoBehaviour:
   m_ObjectHideFlags: 1
