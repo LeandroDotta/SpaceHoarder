@@ -70,7 +70,7 @@ public class Grab : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.transform.localPosition = Vector3.zero;
-
+            rb.transform.localRotation = Quaternion.Euler(Vector3.zero);
 
             grabable.IsGrabbed = true;
             _grabbing = true;

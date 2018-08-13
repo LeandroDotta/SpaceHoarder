@@ -158,4 +158,7 @@ MonoBehaviour:
   IncineratorCooldown: 2
   CompactorCooldown: 1
   Compacted: 1
+  defaultMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 0}
   _score: 100
+  messValue: 10
