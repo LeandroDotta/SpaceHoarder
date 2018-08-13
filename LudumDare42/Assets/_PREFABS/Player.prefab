@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Force: 30
-  Cooldown: 3
+  Cooldown: 2
   _trigger: {fileID: 135377890774801386}
 --- !u!114 &114665966306061100
 MonoBehaviour:
