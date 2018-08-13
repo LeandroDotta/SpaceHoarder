@@ -540,8 +540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfa485c1405a3d4ebdb0b5c9b8282d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bar: {fileID: 0}
-  canvas: {fileID: 0}
+  bar: {fileID: 114857365878549956}
+  canvas: {fileID: 223307565207032268}
   sfxDestroy: {fileID: 8300000, guid: afc4e4484e10ccf4f9934c27ce94dac0, type: 3}
 --- !u!114 &114591358746552114
 MonoBehaviour:
