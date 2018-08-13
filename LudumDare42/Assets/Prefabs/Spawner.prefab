@@ -134,11 +134,11 @@ MonoBehaviour:
   - 0.2
   - 0.1
   SpawnPoint: {fileID: 1877568359399370}
-  SpawnMostWait: 2
-  SpawnLeastWait: 0.5
+  SpawnMostWait: 7
+  SpawnLeastWait: 4
   StartWait: 1
   Stop: 0
-  BurstForce: 2000
+  BurstForce: 500
 --- !u!136 &136330984685072444
 CapsuleCollider:
   m_ObjectHideFlags: 1
