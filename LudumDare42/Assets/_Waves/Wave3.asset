@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4db191192fe053f4da4ef6af0170a0af, type: 3}
-  m_Name: Wave2
+  m_Name: Wave3
   m_EditorClassIdentifier: 
-  Id: 2
-  MaxMessValue: 120
-  DebrisTotal: 30
+  Id: 3
+  MaxMessValue: 130
+  DebrisTotal: 40

@@ -52,7 +52,7 @@ public class Incinerator : MonoBehaviour {
 
             CooldownCounter = debri.IncineratorCooldown;		    
             GameManager.Instance.AddScore(debri.Score);
-            GameManager.Instance.UpdateMessValue(-grabable.GetMassValue());
+            GameManager.Instance.DecrementMessValue(grabable.GetMassValue());
 			canvas.gameObject.SetActive (true);
 
             // TODO play with random pitch - and maybe with a particle animation

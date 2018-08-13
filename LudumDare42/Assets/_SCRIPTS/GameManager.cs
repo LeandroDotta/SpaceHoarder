@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-	//public enum StateMachine { Title, Game, Pause, GameOver };
-	//public StateMachine state = StateMachine.Title;
 
     [Header("UI Panels")]
     public GUIBar MessPanel;
@@ -91,27 +89,36 @@ public class GameManager : MonoBehaviour
 		_scoreText.text = _score.ToString();
 	}
 
-    public void UpdateMessValue(int value)
+    public void IncrementMessValue(int value)
     {        
         _currentMessValue += value;
         _currentDebriCount++;
 
         if (_currentMessValue < 0) { _currentMessValue = 0; }
 
-        if (IsGameOver())
-        {
-            GameOver();
-            return;
-        }
+        MessPanel.UpdateMess((float)_currentMessValue);
+        UpdateDebriText();
 
         if (HasWavedEnded())
         {
             StartNextWave();
             return;
         }
-        
-        MessPanel.UpdateMess((float)_currentMessValue);
-        UpdateDebriText();
+
+        if (IsGameOver())
+        {
+            GameOver();
+            return;
+        }
+    }
+
+    public void DecrementMessValue(int value)
+    {
+        _currentMessValue -= value;
+
+        if (_currentMessValue < 0) { _currentMessValue = 0; }
+
+        MessPanel.UpdateMess((float)_currentMessValue);        
     }
 
     private void GameOver()
@@ -119,9 +126,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("GAME OVER!");
         StartCoroutine(ShowCenterPanelForSeconds("GAME OVER!", 5f));
         Time.timeScale = 0f;
-        GameOverPanel.gameObject.SetActive(true);
-
-        // TODO show UI GameOver with Restart and Quit buttons
+        GameOverPanel.gameObject.SetActive(true);        
     }
 
     bool IsGameOver()
@@ -131,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     bool HasWavedEnded()
     {
-        return _currentDebriCount > _currentWave.DebrisTotal;
+        return _currentDebriCount >= _currentWave.DebrisTotal;
     }
 
     public void StartNextWave()
@@ -141,7 +146,7 @@ public class GameManager : MonoBehaviour
         if (_currentWaveIndex == Waves.Length) { GameOverWin(); return; }   
         
         // Set Wave values
-        _currentWave = Waves[_currentWaveIndex];        
+        _currentWave = Waves[_currentWaveIndex];
         _totalWaveMessValue = _currentWave.MaxMessValue;
         MessPanel.MaxRawValue = (int)_totalWaveMessValue;
 
