@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public void Init()
     {
         MessBar.MaxRawValue = _maxMessValue;
+        //MessBar.UpdateMess();
     }
 
 	public void AddScore(int value)
@@ -54,10 +55,10 @@ public class GameManager : MonoBehaviour
     public void UpdateMessStatus(int value)
     {
 
-        Debug.Log("INCREMENTO: " + messValue);
+        Debug.Log("INCREMENTO: " + value + " - TOTAL: " + (messValue + value));
 
         messValue += value;
-        MessBar.UpdateMess(messValue);
+        MessBar.UpdateMess((float)messValue);
 
         //if (IsGameOver())
         //{
