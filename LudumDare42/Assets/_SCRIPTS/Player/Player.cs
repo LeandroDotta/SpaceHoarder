@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     [Range(0, 100f)]
     [SerializeField] private float _velocity = 17f;
 
+    private float h;
+    private float v;
+
     private void Awake()
     {
         _rigidbody = this.GetComponent<Rigidbody>();
@@ -38,10 +41,6 @@ public class Player : MonoBehaviour
     
     private void FixedUpdate()
     {
-        // read inputs
-        float h = CrossPlatformInputManager.GetAxis("Horizontal");
-        float v = CrossPlatformInputManager.GetAxis("Vertical");
-
         // calculate move direction to pass to character
         if (_cam != null)
         {
@@ -60,6 +59,13 @@ public class Player : MonoBehaviour
 #endif
 
         Move(_move);        
+    }
+
+    private void Update() 
+    {
+        // read inputs
+        h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+        v = CrossPlatformInputManager.GetAxisRaw("Vertical");    
     }
 
     private void Move(Vector3 move)
