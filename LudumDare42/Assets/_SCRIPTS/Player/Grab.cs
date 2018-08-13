@@ -87,10 +87,10 @@ public class Grab : MonoBehaviour
         {
             grabable.SetHighlighted(true);
         }
-        else
-        {
-            Debug.Log("not an IGrabable");
-        }
+        //else
+        //{
+        //    Debug.Log("not an IGrabable");
+        //}
     }
 
     private void OnTriggerExit(Collider other)

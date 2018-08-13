@@ -13,11 +13,10 @@ using UnityEngine.UI;
 
 public class GUIBar : MonoBehaviour
 {
-
 	Image _bar;
-	//BarType bartype;
+	//BarType bartype;    
 
-    private int _maxRawValue = 1000;
+    private int _maxRawValue = 100;
 
     public int MaxRawValue
     {
@@ -35,6 +34,8 @@ public class GUIBar : MonoBehaviour
 
 	public void UpdateMess(float value)
 	{
+        if (_bar == null) { _bar = this.gameObject.GetComponent<Image>(); }
+
         if (value > 0)
         {
             _bar.fillAmount = (float)value / (float)_maxRawValue;
@@ -42,23 +43,26 @@ public class GUIBar : MonoBehaviour
         }
         else
         {
-            _bar.fillAmount = 0;
+            _bar.fillAmount = 0;            
         }
 	}
 
     public void SetBarToZero()
     {
+        if (_bar == null) { _bar = this.gameObject.GetComponent<Image>(); }
         _bar.fillAmount = 0;
     }
 
 	public void UpdateCooldownBar(float cooldown)
-	{        
+	{
+        if (_bar == null) { _bar = this.gameObject.GetComponent<Image>(); }
         _bar.fillAmount = ((cooldown * 1.0f) / (100 * 1.0f));
 	}
 
 	public void ChangeBarColor()
 	{
-		if (_bar.fillAmount < 0.30f)
+        if (_bar == null) { _bar = this.gameObject.GetComponent<Image>(); }
+        if (_bar.fillAmount < 0.30f)
 		{
             _bar.color = new Color32(0, 245, 63, 255);
         }

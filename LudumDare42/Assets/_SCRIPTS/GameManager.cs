@@ -121,11 +121,12 @@ public class GameManager : MonoBehaviour
         _currentWave = Waves[_currentWaveIndex];
         _waveText.text = _currentWave.Id.ToString();
         _totalWaveMessValue = _currentWave.MaxMessValue;
+        MessPanel.MaxRawValue = (int)_totalWaveMessValue;
 
         _currentMessValue = 0;
         _currentDebriCount = 0;               
 
-        //MessPanel.SetBarToZero();        
+        MessPanel.SetBarToZero();
 
         StartCoroutine(ShowCenterPanelForSeconds("Wave " + _currentWaveIndex + 1));
     }

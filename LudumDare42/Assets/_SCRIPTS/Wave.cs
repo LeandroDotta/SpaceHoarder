@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "Wave", menuName = "Wave", order = 1)]
+//[CreateAssetMenu(fileName = "Wave", menuName = "Wave", order = 1)]
 public class Wave : ScriptableObject
 {    
     public int Id;
