@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _grabReach: 3
-  _velocity: 10
+  _velocity: 15
 --- !u!135 &135377890774801386
 SphereCollider:
   m_ObjectHideFlags: 1
