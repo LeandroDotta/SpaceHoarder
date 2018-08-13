@@ -47,9 +47,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
 
     private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-
+    {       
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -73,6 +71,8 @@ public class GameManager : MonoBehaviour
         MessPanel.MaxRawValue = _maxMessValue;        
         MessPanel.UpdateMess(_currentMessValue);
         UpdateDebriText();
+
+        Time.timeScale = 1;
 
         // Disabling panels, just in case
         GameOverPanel.gameObject.SetActive(false);
@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {        
-        SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitGame()
