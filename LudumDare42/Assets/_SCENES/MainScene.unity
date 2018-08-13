@@ -903,6 +903,31 @@ Prefab:
       propertyPath: InitialModule.startSpeed.scalar
       value: 4.2937775
       objectReference: {fileID: 0}
+    - target: {fileID: 65779706712446624, guid: fb99a0306e0c3b846978f89b59504074,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 65779706712446624, guid: fb99a0306e0c3b846978f89b59504074,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 11.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 65779706712446624, guid: fb99a0306e0c3b846978f89b59504074,
+        type: 2}
+      propertyPath: m_Center.x
+      value: -0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 65779706712446624, guid: fb99a0306e0c3b846978f89b59504074,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 3.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 65779706712446624, guid: fb99a0306e0c3b846978f89b59504074,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 3.91
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb99a0306e0c3b846978f89b59504074, type: 2}
   m_IsPrefabAsset: 0

@@ -74,11 +74,10 @@ public class GameManager : MonoBehaviour
 	}
 
     public void UpdateMessValue(int value)
-    {
-        if (value > 0)
-        {
-            _currentMessValue += value;
-        }
+    {        
+        _currentMessValue += value;
+
+        if (_currentMessValue < 0) { _currentMessValue = 0; }
 
         if (IsGameOver())
         {
