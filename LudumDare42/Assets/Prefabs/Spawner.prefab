@@ -64,14 +64,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1157975825032330}
-  m_LocalRotation: {x: 0.35840523, y: -0.6095455, z: 0.6095455, w: 0.35840523}
-  m_LocalPosition: {x: 20.89, y: 10.04, z: 14.71}
+  m_LocalRotation: {x: 0.5791406, y: -0.40570453, z: 0.40570453, w: 0.5791406}
+  m_LocalPosition: {x: 22.01, y: 4.531712, z: -8.8}
   m_LocalScale: {x: 3, y: 0.2, z: 3}
   m_Children:
   - {fileID: 4308768267874286}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90.00001, y: -119.09, z: -58.034004}
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: -109.975006}
 --- !u!23 &23815812493268918
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -130,12 +130,12 @@ MonoBehaviour:
   - {fileID: 1808613347878510, guid: b13e370f8dfeace4fb6e5dfc240a8264, type: 2}
   - {fileID: 1222053849499536, guid: 77eda2b446ca6d349a771d3b7c207445, type: 2}
   DebrisSpawnRate:
-  - 0.7
-  - 0.2
-  - 0.1
+  - 1
+  - 0
+  - 0
   SpawnPoint: {fileID: 1877568359399370}
-  SpawnMostWait: 2
-  SpawnLeastWait: 0.5
+  SpawnMostWait: 4
+  SpawnLeastWait: 2
   StartWait: 1
   Stop: 0
   BurstForce: 2000

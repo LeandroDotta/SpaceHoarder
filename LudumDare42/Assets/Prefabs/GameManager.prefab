@@ -52,4 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreText: {fileID: 0}
+  _WaveText: {fileID: 0}
   MessBar: {fileID: 0}
+  waveSpawn:
+  - {fileID: 0}
+  - {fileID: 0}

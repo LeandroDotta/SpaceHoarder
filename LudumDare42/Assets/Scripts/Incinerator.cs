@@ -39,7 +39,7 @@ public class Incinerator : MonoBehaviour {
         if (grabable != null)
         {
 
-            Debug.Log("DECREMENTO: " + grabable.GetMassValue());
+            //Debug.Log("DECREMENTO: " + grabable.GetMassValue());
 
 		    Debri debri = other.GetComponentInParent<Debri>();
 			if(debri.IsGrabbed)

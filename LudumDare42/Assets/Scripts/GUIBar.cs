@@ -30,8 +30,10 @@ public class GUIBar : MonoBehaviour {
     void Start()
 	{
 		bar = this.gameObject.GetComponent<Image>();
-        bar.fillAmount = 0;
-		if (bartype == BarType.Incinerator)
+
+        setBarToZero();
+
+        if (bartype == BarType.Incinerator)
 		{
 			
 		}
@@ -43,12 +45,25 @@ public class GUIBar : MonoBehaviour {
         //Assim que haver variáveis de bagunça, descomentar esse bloco
         //Debug.Log("value: " + value);
         //Debug.Log("%: " + value / _maxRawValue);
-        bar.fillAmount = (float)value / (float)_maxRawValue; //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
-		ChangeBarColor ();
+
+        if (value > 0)
+        {
+            bar.fillAmount = (float)value / (float)_maxRawValue; //tlvz messlevel tenha que ser subtraído ou dividido ao invés de multiplicado..
+            ChangeBarColor();
+        }
+        else
+        {
+            bar.fillAmount = 0;
+        }
+
+        
 
 	}
 
-
+    public void setBarToZero()
+    {
+        bar.fillAmount = 0;
+    }
 
 
 	public void UpdateCooldownBar(float cooldown)
