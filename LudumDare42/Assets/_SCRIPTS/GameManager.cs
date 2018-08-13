@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private int _currentWaveIndex = -1;
     private int _maxMessValue = 25;
     private float _totalWaveMessValue = 25;
+    private bool _isGameOver = false;
 
     public int MaxMessValue {
         get { return _maxMessValue; }
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
 
         if (IsGameOver())
         {
+            _isGameOver = true;
             GameOver();
             return;
         }
@@ -191,5 +193,10 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void OnSubmit()
+    {
+        Debug.Log("Submit button");
     }
 }

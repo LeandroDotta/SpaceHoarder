@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -8,7 +9,7 @@ public class Menu : MonoBehaviour
 	
 	void Update ()
     {
-		if (CrossPlatformInputManager.GetButton("Submit"))
+		if (CrossPlatformInputManager.GetButton("Submit") || Input.anyKeyDown)
         {
             if (_sceneName != null)
             {
