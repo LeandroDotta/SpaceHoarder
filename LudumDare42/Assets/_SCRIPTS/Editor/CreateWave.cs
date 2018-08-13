@@ -11,7 +11,7 @@ public class CreateWave
     {
         Wave asset = ScriptableObject.CreateInstance<Wave>();
 
-        AssetDatabase.CreateAsset(asset, "Assets/NewWave.asset");
+        AssetDatabase.CreateAsset(asset, "_Waves/NewWave.asset");
         AssetDatabase.SaveAssets();
 
         EditorUtility.FocusProjectWindow();
