@@ -182,8 +182,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1826001418554042}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.023999957, y: 0.554, z: -0.2525001}
-  m_LocalScale: {x: 0.25000003, y: 0.2000001, z: 0.20000008}
+  m_LocalPosition: {x: -0.023999957, y: 0.505, z: -0.2525001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4580119751688640}
   m_RootOrder: 1
@@ -225,13 +225,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416606048717120}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.11, y: -0.081, z: 1.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4812694120792948}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23444483047790064
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -322,7 +322,8 @@ MonoBehaviour:
   canvas: {fileID: 223339136900116112}
   compactedSmall: {fileID: 1970255789361264, guid: 03b678d519cf85a4da139fcd52a7c900,
     type: 2}
-  compactedMedium: {fileID: 0}
+  compactedMedium: {fileID: 1808613347878510, guid: aa7953cfdc93487478497913ac34a2e7,
+    type: 2}
   sfxSpawn: {fileID: 8300000, guid: c3bb3cd9739519b499beac0bd8091bc8, type: 3}
 --- !u!114 &114219402782664430
 MonoBehaviour:
@@ -505,7 +506,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -558,7 +559,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 2.1633072
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1050,7 +1051,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 20
+    angle: 18.778255
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -1080,7 +1081,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.65528774
       mode: 0
       spread: 0
       speed:
@@ -1199,7 +1200,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 40
       minScalar: 10
       maxCurve:
         serializedVersion: 2
