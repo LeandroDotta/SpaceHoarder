@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65264001f4b3abc4791794b126227740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Force: 200
+  Force: 30
   Cooldown: 3
   _trigger: {fileID: 135377890774801386}
 --- !u!114 &114665966306061100
