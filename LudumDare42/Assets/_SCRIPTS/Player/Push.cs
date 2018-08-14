@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Push : MonoBehaviour 
@@ -8,17 +9,21 @@ public class Push : MonoBehaviour
 	public float Force = 200f;
 	public float Cooldown = 2f;
 	[SerializeField] private Collider _trigger;
+    [SerializeField] private ParticleSystem _pushParticleSystem;
 
 	public float CooldownCounter { get; private set; }
+
+    private void Awake()
+    {
+        if (_pushParticleSystem == null) { GetComponentInChildren<ParticleSystem>(); }
+        Assert.IsNotNull(_trigger);
+        Assert.IsNotNull(_pushParticleSystem);
+    }
 
 	private void Start() 
 	{
 		_trigger.enabled = false;
 		CooldownCounter = Cooldown;
-	    //if (_trigger == null)
-	    //{
-	    //    _trigger = GetComponentInChildren<Collider>();
-	    //}
 	}
 
 	private void Update() 
@@ -58,8 +63,12 @@ public class Push : MonoBehaviour
 		if(other.CompareTag("Debri"))
 		{
 			Rigidbody rb = other.GetComponentInParent<Rigidbody>();
-			if(rb != null)
-				rb.AddForce(transform.forward * Force, ForceMode.Impulse);
+		    if (rb != null)
+		    {
+				rb.AddForce(transform.forward * Force, ForceMode.Impulse);                
+                _pushParticleSystem.Play();
+		    }
 		}	    
 	}
+
 }
