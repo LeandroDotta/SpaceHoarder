@@ -155,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Size: 1
   PlayerSpeedMultiplier: 0.8
-  IncineratorCooldown: 2
-  CompactorCooldown: 1
+  IncineratorCooldown: 3.5
+  CompactorCooldown: 2
   Compacted: 1
   defaultMaterial: {fileID: 0}
   highlightMaterial: {fileID: 2100000, guid: 5d69df9d9d11e49d110086ba44295342, type: 2}

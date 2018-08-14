@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public class Compactor : MonoBehaviour
 {
     public Transform spawnPoint;
     public float exitForce;
-	public GUIBar bar;
-	public Canvas canvas;
+    public CooldownBar cooldown;
 
     [Header("Prefabs")]
     public GameObject compactedSmall;
@@ -21,6 +21,11 @@ public class Compactor : MonoBehaviour
     public float CooldownCounter { get; private set; }
     public bool IsCoolingDown { get{ return CooldownCounter > 0; } }
 
+    private void Awake()
+    {
+        Assert.IsNotNull(cooldown);
+    }
+
     void Update()
     {
         if (CooldownCounter > 0)
@@ -28,7 +33,6 @@ public class Compactor : MonoBehaviour
             if (CooldownCounter > 0)
             {
                 CooldownCounter -= Time.deltaTime;
-                bar.UpdateCooldownBar(CooldownCounter);
 
                 if (CooldownCounter < 0)
                     CooldownCounter = 0;
@@ -38,7 +42,6 @@ public class Compactor : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //Debug.Log("Collided");
         if (CooldownCounter > 0)
             return;
 
@@ -54,11 +57,10 @@ public class Compactor : MonoBehaviour
             Destroy(particleGO, 1f);
 
             CooldownCounter = debri.CompactorCooldown;
+            cooldown.Show(debri.CompactorCooldown); // Show cooldown UI
 			StartCoroutine(SpawnCoroutine(debri.Size, debri.CompactorCooldown));
 
             Destroy(other.transform.parent.gameObject);
-
-            canvas.gameObject.SetActive(true);
         }
     }
 
@@ -77,7 +79,5 @@ public class Compactor : MonoBehaviour
             rb.AddForce(spawnPoint.forward * exitForce, ForceMode.Impulse);
 
         SoundEffects.Instance.Play(SfxSpawn, true);
-
-        canvas.gameObject.SetActive(false);
     }
 }

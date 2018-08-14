@@ -434,7 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Size: 2
   PlayerSpeedMultiplier: 0.5
-  IncineratorCooldown: 1
+  IncineratorCooldown: 7
   CompactorCooldown: 3
   Compacted: 0
   defaultMaterial: {fileID: 0}
