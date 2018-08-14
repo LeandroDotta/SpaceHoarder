@@ -9,6 +9,7 @@ public class Push : MonoBehaviour
 	public float Force = 200f;
 	public float Cooldown = 2f;
 	[SerializeField] private Collider _trigger;
+	[SerializeField] private Animator anim;
     [SerializeField] private ParticleSystem _pushParticleSystem;
 
 	public float CooldownCounter { get; private set; }
@@ -18,6 +19,7 @@ public class Push : MonoBehaviour
         if (_pushParticleSystem == null) { GetComponentInChildren<ParticleSystem>(); }
         Assert.IsNotNull(_trigger);
         Assert.IsNotNull(_pushParticleSystem);
+        Assert.IsNotNull(anim);
     }
 
 	private void Start() 
@@ -46,6 +48,7 @@ public class Push : MonoBehaviour
 		if(CooldownCounter > 0)
 			return;
 
+		anim.SetTrigger("Push");
 		_trigger.enabled = true;
 		StartCoroutine("DisableCoroutine");
 		CooldownCounter = Cooldown;
