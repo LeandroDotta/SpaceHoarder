@@ -7,12 +7,16 @@ public class CooldownBar : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image bar;
+    [SerializeField] private Gradient gradient;
+
+
 
     public bool IsCoolingdown { get; private set; }
 
 	private void Start() 
 	{
-		canvas.gameObject.SetActive(false);	
+		canvas.gameObject.SetActive(false);
+        // bar.color = gradient.colorKeys[0].color;
 	}
 
     public void Show(float cooldown)
@@ -28,12 +32,16 @@ public class CooldownBar : MonoBehaviour
 		canvas.gameObject.SetActive(true);
 		IsCoolingdown = true;
 
+        float timer = 0;
+
         do
         {
             yield return new WaitForEndOfFrame();
 
-            bar.fillAmount += Time.deltaTime / cooldown;
-        } while (bar.fillAmount < 1);
+            timer += Time.deltaTime / cooldown;
+            bar.color = gradient.Evaluate(timer);
+            bar.fillAmount = timer;
+        } while (timer < 1);
 
 		canvas.gameObject.SetActive(false);
 		IsCoolingdown = false;

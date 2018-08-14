@@ -256,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416606048717120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: -0.081, z: 1.13}
+  m_LocalPosition: {x: 0, y: 0, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4812694120792948}
@@ -333,8 +333,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1.6430913}
+  m_Center: {x: 1.7272692e-15, y: 0, z: 0.32154572}
 --- !u!114 &114019882386085488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,6 +348,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 223957590061880608}
   bar: {fileID: 114856527420077532}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.51115847, b: 0.082352936, a: 1}
+    key2: {r: 0.96646357, g: 0.9137417, b: 0.17662165, a: 0}
+    key3: {r: 0.17479819, g: 0.7075472, b: 0.0033374948, a: 0}
+    key4: {r: 0.17479819, g: 0.7075472, b: 0.0033374948, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 19661
+    ctime2: 45104
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
 --- !u!114 &114022579552282894
 MonoBehaviour:
   m_ObjectHideFlags: 1
