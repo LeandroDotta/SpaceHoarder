@@ -10,13 +10,16 @@ public class Incinerator : MonoBehaviour {
 	public GUIBar bar;
 	public Canvas canvas;
 
-	[Header("Sound Effects")]
-	public AudioClip sfxDestroy;
+	[Header("Effects")]
+	public AudioClip SfxDestroy;
+    public GameObject IncineratorDestruction;
 
     private void Awake()
     {
         Assert.IsNotNull(bar);
         Assert.IsNotNull(canvas);
+        Assert.IsNotNull(SfxDestroy);
+        Assert.IsNotNull(IncineratorDestruction);
     }
 
 	void Update ()
@@ -49,16 +52,19 @@ public class Incinerator : MonoBehaviour {
 
 		    Debri debri = other.GetComponentInParent<Debri>();
 			if(debri.IsGrabbed) { return; }
+            
+            GameObject particleGO = Instantiate(IncineratorDestruction, debri.transform.position, Quaternion.identity) as GameObject;
+            Destroy(particleGO, 1f);
 
             CooldownCounter = debri.IncineratorCooldown;		    
             GameManager.Instance.AddScore(debri.Score);
             GameManager.Instance.DecrementMessValue(grabable.GetMassValue());
 			canvas.gameObject.SetActive (true);
 
-            // TODO play with random pitch - and maybe with a particle animation
-			SoundEffects.Instance.Play(sfxDestroy);
-
+            // TODO play with random pitch - and maybe with a particle animation            
+			SoundEffects.Instance.Play(SfxDestroy, true);
+            
             Destroy(debri.gameObject);
-		}
+        }
 	}
 }

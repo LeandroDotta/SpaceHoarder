@@ -14,8 +14,9 @@ public class Compactor : MonoBehaviour
     public GameObject compactedSmall;
     public GameObject compactedMedium;
 
-    [Header("Sound Effects")]
-    public AudioClip sfxSpawn;
+    [Header("Effects")]
+    public AudioClip SfxSpawn;
+    public ParticleSystem CompactorParticleSystem;
 
     public float CooldownCounter { get; private set; }
     public bool IsCoolingDown { get{ return CooldownCounter > 0; } }
@@ -47,8 +48,12 @@ public class Compactor : MonoBehaviour
 
 			if(debri.IsGrabbed || debri.Size == Size.Small)
 				return;
-			
-			CooldownCounter = debri.CompactorCooldown;
+
+            // Compactor Particle System
+            GameObject particleGO = Instantiate(CompactorParticleSystem.gameObject, debri.transform.position, Quaternion.identity) as GameObject;
+            Destroy(particleGO, 1f);
+
+            CooldownCounter = debri.CompactorCooldown;
 			StartCoroutine(SpawnCoroutine(debri.Size, debri.CompactorCooldown));
 
             Destroy(other.transform.parent.gameObject);
@@ -71,7 +76,7 @@ public class Compactor : MonoBehaviour
         if (rb != null)
             rb.AddForce(spawnPoint.forward * exitForce, ForceMode.Impulse);
 
-        SoundEffects.Instance.Play(sfxSpawn);
+        SoundEffects.Instance.Play(SfxSpawn, true);
 
         canvas.gameObject.SetActive(false);
     }

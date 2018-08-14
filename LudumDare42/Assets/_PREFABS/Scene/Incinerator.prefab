@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1660015165908006}
   m_LocalRotation: {x: 0.09326655, y: -0.7009289, z: -0.7009289, w: -0.09326655}
-  m_LocalPosition: {x: -1.0311235, y: 2.2220883, z: 2.20115}
+  m_LocalPosition: {x: -1.06, y: 2.2220883, z: 2.51}
   m_LocalScale: {x: 1.3716352, y: 1.0817201, z: 1.0632005}
   m_Children: []
   m_Father: {fileID: 4180319253026488}
@@ -255,8 +255,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 11.94, y: 8.88, z: 7.96}
-  m_Center: {x: 0, y: 3.62, z: -4.93}
+  m_Size: {x: 9.5, y: 11.7, z: 7.96}
+  m_Center: {x: -0.98, y: 3.91, z: 3.57}
 --- !u!65 &65997506636901604
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -319,7 +319,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 114857365878549956}
   canvas: {fileID: 223307565207032268}
-  sfxDestroy: {fileID: 8300000, guid: afc4e4484e10ccf4f9934c27ce94dac0, type: 3}
+  SfxDestroy: {fileID: 8300000, guid: afc4e4484e10ccf4f9934c27ce94dac0, type: 3}
+  IncineratorDestruction: {fileID: 1238373367479976, guid: 61e7600ce181e754aa758dde1a336dea,
+    type: 2}
 --- !u!114 &114591358746552114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -554,7 +556,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 4.2937775
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1046,7 +1048,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 20
+    angle: 4.7172623
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
