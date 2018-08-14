@@ -8,6 +8,7 @@ public class Push : MonoBehaviour
 	public float Force = 200f;
 	public float Cooldown = 2f;
 	[SerializeField] private Collider _trigger;
+	[SerializeField] private Animator anim;
 
 	public float CooldownCounter { get; private set; }
 
@@ -23,11 +24,6 @@ public class Push : MonoBehaviour
 
 	private void Update() 
 	{
-        if(CrossPlatformInputManager.GetButton("Push"))
-		{
-			Apply();
-		}
-
 		if(CooldownCounter > 0)
 		{
 			CooldownCounter -= Time.deltaTime;
@@ -41,6 +37,7 @@ public class Push : MonoBehaviour
 		if(CooldownCounter > 0)
 			return;
 
+		anim.SetTrigger("Push");
 		_trigger.enabled = true;
 		StartCoroutine("DisableCoroutine");
 		CooldownCounter = Cooldown;
