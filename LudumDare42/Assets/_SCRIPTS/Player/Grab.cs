@@ -7,6 +7,7 @@ public class Grab : MonoBehaviour
 {
     public Transform grabedTransform;
     [SerializeField] private Collider _collider;
+    [SerializeField] private Animator anim;
     private List<IGrabable> _itemsGrabbed;
     private bool _isFire1Pressed = false;
     private bool _grabbing = false;
@@ -23,28 +24,56 @@ public class Grab : MonoBehaviour
 
     void Update()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        // if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        // {
+        // if (_grabbing)
+        // {
+        //     foreach(IGrabable grabable in _itemsGrabbed)
+        //     {
+        //         Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
+        //         rb.useGravity = true;
+        //         rb.isKinematic = false;
+        //         rb.transform.SetParent(null);
+
+        //         grabable.IsGrabbed = false;
+        //     }
+
+        //     _itemsGrabbed.Clear();
+        //     _grabbing = false;
+        // }
+        // else
+        // {
+        //     _isFire1Pressed = true;
+        //     StartCoroutine(GrabCoroutine());
+        // }
+        // }
+
+        
+    }
+
+    //TODO: Pensar num nome melhor para este método
+    public void Apply()
+    {
+        if (_grabbing)
         {
-            if (_grabbing)
+            foreach (IGrabable grabable in _itemsGrabbed)
             {
-                foreach(IGrabable grabable in _itemsGrabbed)
-                {
-                    Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
-                    rb.useGravity = true;
-                    rb.isKinematic = false;
-                    rb.transform.SetParent(null);
+                Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
+                rb.useGravity = true;
+                rb.isKinematic = false;
+                rb.transform.SetParent(null);
 
-                    grabable.IsGrabbed = false;
-                }
+                grabable.IsGrabbed = false;
+            }
 
-                _itemsGrabbed.Clear();
-                _grabbing = false;
-            }
-            else
-            {
-                _isFire1Pressed = true;
-                StartCoroutine(GrabCoroutine());
-            }
+            _itemsGrabbed.Clear();
+            _grabbing = false;
+            anim.SetBool("Grabbing", false);
+        }
+        else
+        {
+            _isFire1Pressed = true;
+            StartCoroutine(GrabCoroutine());
         }
     }
 
@@ -62,9 +91,10 @@ public class Grab : MonoBehaviour
 
         if (grabable != null)
         {
+            anim.SetBool("Grabbing", true);
             grabable.GetTransform().SetParent(grabedTransform);
             Rigidbody rb = grabable.GetTransform().GetComponent<Rigidbody>();
-            
+
             rb.useGravity = false;
             rb.isKinematic = true;
             rb.velocity = Vector3.zero;

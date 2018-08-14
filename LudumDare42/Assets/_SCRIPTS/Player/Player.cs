@@ -3,19 +3,23 @@ using TMPro;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.Assertions;
-   
+
 public class Player : MonoBehaviour
-{        
+{
     private Transform _cam;                  // A reference to the main camera in the scenes transform
     private Vector3 _camForward;             // The current forward direction of the camera
     private Vector3 _move;
     private Rigidbody _rigidbody;
-    private Vector3 _offsetToGrab = new Vector3(0f, 2f, 0f);    
+    private Vector3 _offsetToGrab = new Vector3(0f, 2f, 0f);
     [Range(0, 10f)]
     [SerializeField] private float _grabReach = 3f;
     [Tooltip("velocity of the player")]
     [Range(0, 100f)]
     [SerializeField] private float _velocity = 17f;
+
+    [SerializeField] private Grab grab;
+    [SerializeField] private Push push;
+    [SerializeField] private Animator anim;
 
     private float h;
     private float v;
@@ -27,7 +31,7 @@ public class Player : MonoBehaviour
     }
 
     private void Start()
-    {        
+    {
         if (Camera.main != null)
         {
             _cam = Camera.main.transform;
@@ -35,10 +39,10 @@ public class Player : MonoBehaviour
         else
         {
             Debug.LogWarning(
-                "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);         
+                "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
         }
     }
-    
+
     private void FixedUpdate()
     {
         // calculate move direction to pass to character
@@ -58,14 +62,24 @@ public class Player : MonoBehaviour
         // if (CrossPlatformInputManager.GetButton("Fire3")) { _move *= 1.2f; }
 #endif
 
-        Move(_move);        
+        Move(_move);
     }
 
-    private void Update() 
+    private void Update()
     {
         // read inputs
         h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
-        v = CrossPlatformInputManager.GetAxisRaw("Vertical");    
+        v = CrossPlatformInputManager.GetAxisRaw("Vertical");
+
+        if (CrossPlatformInputManager.GetButtonDown("Push"))
+        {
+            push.Apply();            
+        }
+
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        {
+            grab.Apply();
+        }
     }
 
     private void Move(Vector3 move)
@@ -73,18 +87,23 @@ public class Player : MonoBehaviour
         if (move != Vector3.zero)
         {
             _rigidbody.transform.forward = move;
+            anim.SetBool("Walking", true);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
         }
 
         move.x *= _velocity;
         move.y = _rigidbody.velocity.y;
-        move.z *= _velocity;        
+        move.z *= _velocity;
         _rigidbody.velocity = (move.normalized * _velocity);
     }
 
     private IGrabable Grab()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + _offsetToGrab, transform.TransformDirection(Vector3.forward), out hit, _grabReach))                  
+        if (Physics.Raycast(transform.position + _offsetToGrab, transform.TransformDirection(Vector3.forward), out hit, _grabReach))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             Debug.Log("We hit " + hit.transform.name);

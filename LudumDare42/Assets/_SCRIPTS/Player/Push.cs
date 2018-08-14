@@ -16,7 +16,7 @@ public class Push : MonoBehaviour
 
     private void Awake()
     {
-        if (_pushParticleSystem == null) { GetComponentInChildren<ParticleSystem>(); }
+        if (_pushParticleSystem == null) { _pushParticleSystem = GetComponentInChildren<ParticleSystem>(); }
         Assert.IsNotNull(_trigger);
         Assert.IsNotNull(_pushParticleSystem);
         Assert.IsNotNull(anim);
@@ -29,12 +29,7 @@ public class Push : MonoBehaviour
 	}
 
 	private void Update() 
-	{
-        if(CrossPlatformInputManager.GetButton("Push"))
-		{
-			Apply();
-		}
-
+	{        
 		if(CooldownCounter > 0)
 		{
 			CooldownCounter -= Time.deltaTime;
