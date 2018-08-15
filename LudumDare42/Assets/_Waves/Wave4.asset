@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0
   MaxMessValue: 0
-  DebrisTotal: 100
-  rateDebriSmall: 0.7
-  rateDebriMedium: 0.2
-  rateDebriLarge: 0.1
-  spawnMostWait: 5
-  spawnLeastWait: 2
+  DebrisTotal: 30
+  rateDebriSmall: 0.45
+  rateDebriMedium: 0.35
+  rateDebriLarge: 0.2
+  spawnMostWait: 3.5
+  spawnLeastWait: 1.5

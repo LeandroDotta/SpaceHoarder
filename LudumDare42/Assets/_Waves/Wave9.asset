@@ -9,13 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4db191192fe053f4da4ef6af0170a0af, type: 3}
-  m_Name: Wave3
+  m_Name: Wave9
   m_EditorClassIdentifier: 
-  Id: 3
-  MaxMessValue: 130
-  DebrisTotal: 25
-  rateDebriSmall: 0.5
-  rateDebriMedium: 0.3
-  rateDebriLarge: 0.2
-  spawnMostWait: 3.75
-  spawnLeastWait: 1.5
+  Id: 0
+  MaxMessValue: 0
+  DebrisTotal: 85
+  rateDebriSmall: 0.3
+  rateDebriMedium: 0.35
+  rateDebriLarge: 0.35
+  spawnMostWait: 2.25
+  spawnLeastWait: 1.25

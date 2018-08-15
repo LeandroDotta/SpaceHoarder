@@ -2056,7 +2056,7 @@ Prefab:
     - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
         type: 2}
       propertyPath: Waves.Array.size
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
         type: 2}
@@ -2144,8 +2144,62 @@ Prefab:
     - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
         type: 2}
       propertyPath: _maxMessValue
-      value: 500
+      value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
+        type: 2}
+      propertyPath: Waves.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c8d58fea58a5fb44f8dd9d65491fb56d,
+        type: 2}
+    - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
+        type: 2}
+      propertyPath: Waves.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a1ec3b12c39126249b42f9f03e6ec060,
+        type: 2}
+    - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
+        type: 2}
+      propertyPath: Waves.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: bf2d98efa7329684fa4dff1ae699e6d5,
+        type: 2}
+    - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
+        type: 2}
+      propertyPath: Waves.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: ccfb7b46bdd96954c9e9021b8974ab01,
+        type: 2}
+    - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
+        type: 2}
+      propertyPath: Waves.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: c693ad4303da25b47b389612a3f53667,
+        type: 2}
+    - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
+        type: 2}
+      propertyPath: Waves.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d26e4945bbfca24f8e9c16656d723fb,
+        type: 2}
+    - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
+        type: 2}
+      propertyPath: Waves.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1801cfa3d37deac4aa1beaaaa4e113a8,
+        type: 2}
+    - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
+        type: 2}
+      propertyPath: Waves.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: ff097e45435b48343ad18fa2ca3fb613,
+        type: 2}
+    - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
+        type: 2}
+      propertyPath: Waves.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: d0613b6af71bbd84a89c32efb61664e8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86dffee6e4d2f4abab280066bafc00, type: 2}
   m_IsPrefabAsset: 0
@@ -2563,6 +2617,21 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 224608837726420596, guid: fe9f4ebaa5535d34aa5d7626a2545640,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 39.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224608837726420596, guid: fe9f4ebaa5535d34aa5d7626a2545640,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 48.703
+      objectReference: {fileID: 0}
+    - target: {fileID: 224608837726420596, guid: fe9f4ebaa5535d34aa5d7626a2545640,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -97.405
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe9f4ebaa5535d34aa5d7626a2545640, type: 2}

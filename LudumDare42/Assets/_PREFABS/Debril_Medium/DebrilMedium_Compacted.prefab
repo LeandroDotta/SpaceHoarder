@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 4505722538807586}
   - component: {fileID: 54807300377685978}
   - component: {fileID: 114227904580249556}
-  - component: {fileID: 65008965806650102}
   - component: {fileID: 75815011382909538}
   m_Layer: 0
   m_Name: DebrilMedium_Compacted
@@ -132,18 +131,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65008965806650102
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808613347878510}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.99, y: 2.87, z: 2.48}
-  m_Center: {x: 0, y: 1.66, z: 0}
 --- !u!65 &65316291125083148
 BoxCollider:
   m_ObjectHideFlags: 1
