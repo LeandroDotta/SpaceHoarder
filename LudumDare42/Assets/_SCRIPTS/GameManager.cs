@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private int _currentDebriCount = 0;    
     private int _currentMessValue = 0;
     private int _currentWaveIndex = -1;
-    private int _maxMessValue = 100;
+    [SerializeField] private int _maxMessValue = 500;
     private float _totalWaveMessValue = 25;
     private bool _isGameOver = false;
 
@@ -133,7 +133,8 @@ public class GameManager : MonoBehaviour
 
     bool IsGameOver()
     {
-        return _currentMessValue >= _currentWave.MaxMessValue;
+        // return _currentMessValue >= _currentWave.MaxMessValue;
+        return _currentMessValue >= _maxMessValue;
     }
 
     bool HasWavedEnded()
@@ -156,6 +157,16 @@ public class GameManager : MonoBehaviour
         _currentDebriCount = 0;               
 
         // MessPanel.SetBarToZero();
+
+        foreach(Spawner spanwer in Spawners)
+        {
+            spanwer.DebrisSpawnRate[0] = _currentWave.rateDebriSmall;
+            spanwer.DebrisSpawnRate[1] = _currentWave.rateDebriMedium;
+            spanwer.DebrisSpawnRate[2] = _currentWave.rateDebriLarge;
+
+            spanwer.SpawnMostWait = _currentWave.spawnMostWait;
+            spanwer.SpawnLeastWait = _currentWave.spawnLeastWait;
+        }
 
         StartCoroutine(ShowCenterPanelForSeconds("Wave " + (_currentWaveIndex + 1)) );
     }
