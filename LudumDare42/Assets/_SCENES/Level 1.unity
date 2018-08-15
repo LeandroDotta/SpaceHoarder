@@ -2012,12 +2012,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4945625822864284, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8,
     type: 2}
   m_PrefabInternal: {fileID: 1386229069}
---- !u!114 &1185864343 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114356727396085208, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1386229069}
-  m_Script: {fileID: 11500000, guid: fea336b91832e154393e6fdee0fedb6f, type: 3}
 --- !u!1 &1205929075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,7 +2160,7 @@ Prefab:
     - target: {fileID: 114801533806474118, guid: 6b86dffee6e4d2f4abab280066bafc00,
         type: 2}
       propertyPath: Spawners.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4004048709477950, guid: 6b86dffee6e4d2f4abab280066bafc00, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2239,7 +2233,7 @@ Prefab:
         type: 2}
       propertyPath: Spawners.Array.data[1]
       value: 
-      objectReference: {fileID: 1185864343}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b86dffee6e4d2f4abab280066bafc00, type: 2}
   m_IsPrefabAsset: 0
@@ -2316,6 +2310,10 @@ Prefab:
     - target: {fileID: 1157975825032330, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8, type: 2}
       propertyPath: m_Name
       value: Spawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1157975825032330, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d09bcc8900fd5743a2fccbe71ce1ef8, type: 2}
