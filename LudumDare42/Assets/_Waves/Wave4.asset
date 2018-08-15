@@ -17,5 +17,5 @@ MonoBehaviour:
   rateDebriSmall: 0.7
   rateDebriMedium: 0.2
   rateDebriLarge: 0.1
-  spawnMostWait: 0.1
-  spawnLeastWait: 0.1
+  spawnMostWait: 5
+  spawnLeastWait: 2
