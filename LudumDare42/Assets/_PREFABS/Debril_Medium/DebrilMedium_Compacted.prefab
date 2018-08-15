@@ -39,6 +39,8 @@ GameObject:
   - component: {fileID: 4505722538807586}
   - component: {fileID: 54807300377685978}
   - component: {fileID: 114227904580249556}
+  - component: {fileID: 65008965806650102}
+  - component: {fileID: 75815011382909538}
   m_Layer: 0
   m_Name: DebrilMedium_Compacted
   m_TagString: Debri
@@ -66,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808613347878510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0877867, y: 14.712038, z: -12.874312}
+  m_LocalPosition: {x: 7.7, y: 4.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087986426160754}
@@ -122,7 +124,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808613347878510}
   serializedVersion: 2
-  m_Mass: 250
+  m_Mass: 4
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -130,18 +132,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65008965806650102
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808613347878510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.99, y: 2.87, z: 2.48}
+  m_Center: {x: 0, y: 1.66, z: 0}
 --- !u!65 &65316291125083148
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1674480631715450}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: eb640d55edd4b584d923b7d9dfc166cc, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.2027278, y: 1.135199, z: 1.2690758}
   m_Center: {x: 0, y: 0.51034355, z: 0}
+--- !u!75 &75815011382909538
+ConstantForce:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808613347878510}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -20, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &114227904580249556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,4 +186,4 @@ MonoBehaviour:
   defaultMaterial: {fileID: 0}
   highlightMaterial: {fileID: 2100000, guid: 5d69df9d9d11e49d110086ba44295342, type: 2}
   _score: 100
-  messValue: 5
+  messValue: 3

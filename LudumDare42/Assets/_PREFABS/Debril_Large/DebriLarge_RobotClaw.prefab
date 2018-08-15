@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4045110612751904}
   - component: {fileID: 54994894872152648}
   - component: {fileID: 114833051867995176}
+  - component: {fileID: 75393815167599604}
   m_Layer: 0
   m_Name: DebriLarge_RobotClaw
   m_TagString: Debri
@@ -149,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222053849499536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.0330005, y: 0.26389557, z: 2.3553398}
+  m_LocalPosition: {x: 6.2, y: 4.4, z: 8.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4582870460220812}
@@ -443,14 +444,25 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222053849499536}
   serializedVersion: 2
-  m_Mass: 500
+  m_Mass: 12
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!75 &75393815167599604
+ConstantForce:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222053849499536}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 3, y: -1, z: 3}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &114833051867995176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -477,7 +489,7 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719516969810108}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9f93f63d068b08c459038c40fce897d8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.70368683

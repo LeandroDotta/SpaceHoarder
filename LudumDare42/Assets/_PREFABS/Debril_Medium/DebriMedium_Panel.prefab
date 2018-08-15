@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 4505722538807586}
   - component: {fileID: 54807300377685978}
   - component: {fileID: 114227904580249556}
+  - component: {fileID: 75393585241496616}
   m_Layer: 0
   m_Name: DebriMedium_Panel
   m_TagString: Debri
@@ -158,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808613347878510}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.688641, y: 13.638493, z: -12.874312}
+  m_LocalPosition: {x: -2.6999998, y: 4.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4978158782830014}
@@ -370,7 +371,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808613347878510}
   serializedVersion: 2
-  m_Mass: 250
+  m_Mass: 7
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -390,6 +391,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3042516, y: 1, z: 1.678716}
   m_Center: {x: 0, y: 0, z: -0.16382775}
+--- !u!75 &75393585241496616
+ConstantForce:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1808613347878510}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 0, z: 0}
+  m_RelativeForce: {x: 0, y: -10, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 1, y: 0, z: 1}
 --- !u!114 &114227904580249556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -409,4 +421,4 @@ MonoBehaviour:
   defaultMaterial: {fileID: 0}
   highlightMaterial: {fileID: 2100000, guid: 5d69df9d9d11e49d110086ba44295342, type: 2}
   _score: 20
-  messValue: 2
+  messValue: 3
