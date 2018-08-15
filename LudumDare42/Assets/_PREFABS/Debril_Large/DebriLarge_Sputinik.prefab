@@ -440,7 +440,7 @@ MonoBehaviour:
   defaultMaterial: {fileID: 0}
   highlightMaterial: {fileID: 2100000, guid: 215977489d11178d11005b9844295342, type: 2}
   _score: 50
-  messValue: 5
+  messValue: 1
 --- !u!136 &136529583296648734
 CapsuleCollider:
   m_ObjectHideFlags: 1

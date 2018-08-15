@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private int _currentDebriCount = 0;    
     private int _currentMessValue = 0;
     private int _currentWaveIndex = -1;
-    private int _maxMessValue = 25;
+    private int _maxMessValue = 100;
     private float _totalWaveMessValue = 25;
     private bool _isGameOver = false;
 
@@ -150,12 +150,12 @@ public class GameManager : MonoBehaviour
         // Set Wave values
         _currentWave = Waves[_currentWaveIndex];
         _totalWaveMessValue = _currentWave.MaxMessValue;
-        MessPanel.MaxRawValue = (int)_totalWaveMessValue;
+        // MessPanel.MaxRawValue = (int)_totalWaveMessValue;
 
-        _currentMessValue = 0;
+        // _currentMessValue = 0;
         _currentDebriCount = 0;               
 
-        MessPanel.SetBarToZero();
+        // MessPanel.SetBarToZero();
 
         StartCoroutine(ShowCenterPanelForSeconds("Wave " + (_currentWaveIndex + 1)) );
     }
