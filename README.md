@@ -38,4 +38,5 @@ Dalton Lima @daltonbr
 Florencio @wflorencio  
 Michael Oliveira @michael-oliveira  
 Leandro Dotta @leandro-dotta  
-Victorlb @vicotrlb  
+Victorlb @vicotrlb
+Ricardo Silva @cavalsilva
